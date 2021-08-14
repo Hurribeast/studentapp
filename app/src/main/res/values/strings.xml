@@ -15,5 +15,12 @@
     <string name="technical_error">An unknow error happened : Try again</string>
     <string name="email">Email : </string>
     <string name="password">Password : </string>
+    <string name="birthday">Birthday : </string>
     <string name="no_account_yet">No account yet ?</string>
+    <string name="register">Register</string>
+    <string name="confirm_password">Confirm password</string>
+
+    <string name="error_empty_email">Empty email field</string>
+    <string name="error_email_format">Unvalid email</string>
+    <string name="error_empty_password">Empty password field</string>
 </resources>

@@ -15,12 +15,8 @@ import be.leeroy.studentapp.MainActivity;
 import be.leeroy.studentapp.R;
 import be.leeroy.studentapp.models.NetworkError;
 import be.leeroy.studentapp.utils.PreferencesUtils;
+import be.leeroy.studentapp.utils.RegexValidation;
 import be.leeroy.studentapp.viewmodel.LoginViewModel;
-
-//TODO
-// AJOUTER LE CHECK DU FORMULAIRE
-
-
 public class Login extends AppCompatActivity {
     private EditText email, password;
     private TextView emailHeader, passwordHeader, register;
@@ -60,9 +56,11 @@ public class Login extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String emailStringed = email.getText().toString();
-                String passwordStringed = password.getText().toString();
-                viewModel.loginUser(emailStringed, passwordStringed);
+                if(validForm()) {
+                    String emailStringed = email.getText().toString();
+                    String passwordStringed = password.getText().toString();
+                    viewModel.loginUser(emailStringed, passwordStringed);
+                }
             }
         });
 
@@ -90,6 +88,27 @@ public class Login extends AppCompatActivity {
         }
     }
     private Boolean validForm() {
+        String emailToVerify = email.getText().toString();
+        String passwordToVerify = password.getText().toString();
+
+        if(emailToVerify.equals("")) {
+            emailHeader.setError(getString(R.string.error_empty_email));
+            return false;
+        } else {
+            if(!RegexValidation.email(emailToVerify)) {
+                emailHeader.setError(getString(R.string.error_email_format));
+                return false;
+            } else {
+                emailHeader.setError(null);
+            }
+        }
+
+        if(passwordToVerify.equals("")) {
+            passwordHeader.setError(getString(R.string.error_empty_password));
+            return false;
+        } else {
+            passwordHeader.setError(null);
+        }
         return true;
     }
 }
