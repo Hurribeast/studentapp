@@ -31,6 +31,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
         android:layout_marginBottom="30dp"
+        android:maxLines="1"
         />
     <TextView
         android:id="@+id/login_form_password_header"
@@ -47,6 +48,7 @@
         android:inputType="textPassword"
         android:layout_marginHorizontal="30dp"
         android:layout_marginBottom="30dp"
+        android:maxLines="1"
         />
     <Button
         android:id="@+id/login_form_login_button"
@@ -64,9 +66,10 @@
         android:text="@string/no_account_yet"
         android:layout_marginVertical="40dp"
         android:textAlignment="center"
-        android:textSize="14dp"
+        android:textSize="14sp"
         android:textColor="@color/colorAccent"
         android:onClick="onClick"
         android:clickable="true"
+        android:focusable="true"
         />
 </LinearLayout>
