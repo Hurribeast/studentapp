@@ -22,13 +22,13 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class LoginViewModel extends AndroidViewModel {
-    private MutableLiveData<String> _token = new MutableLiveData<>();
-    private LiveData<String> token = _token;
+    private final MutableLiveData<String> _token = new MutableLiveData<>();
+    private final LiveData<String> token = _token;
 
-    private MutableLiveData<NetworkError> _error = new MutableLiveData<>();
-    private LiveData<NetworkError> error = _error;
+    private final MutableLiveData<NetworkError> _error = new MutableLiveData<>();
+    private final LiveData<NetworkError> error = _error;
 
-    private LoginDataAccess loginDataAccess;
+    private final LoginDataAccess loginDataAccess;
 
     public LoginViewModel(@NonNull Application application) {
         super(application);
