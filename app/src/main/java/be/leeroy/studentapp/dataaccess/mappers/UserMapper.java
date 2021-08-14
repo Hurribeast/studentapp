@@ -16,6 +16,6 @@ public class UserMapper {
     public User mapToUser(UserDTO userDTO) {
         if(userDTO == null) return null;
 
-        return new User(userDTO.getToken());
+        return new User();
     }
 }
