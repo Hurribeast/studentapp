@@ -11,12 +11,15 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
-import be.leeroy.studentapp.MainActivity;
 import be.leeroy.studentapp.R;
 import be.leeroy.studentapp.models.NetworkError;
 import be.leeroy.studentapp.utils.PreferencesUtils;
 import be.leeroy.studentapp.utils.RegexValidation;
 import be.leeroy.studentapp.viewmodel.LoginViewModel;
+
+//TODO
+// AJOUTER LE CHECK DU FORMULAIRE
+
 public class Login extends AppCompatActivity {
     private EditText email, password;
     private TextView emailHeader, passwordHeader, register;
@@ -66,17 +69,17 @@ public class Login extends AppCompatActivity {
 
         viewModel.getToken().observe(this, token -> {
             PreferencesUtils.setToken(token, this);
-            toMainActivity();
+        //    toMainActivity();
         });
 
         viewModel.getError().observe(this, this::displayError);
     }
-
+/*
     private void toMainActivity() {
         Intent i = new Intent(getApplicationContext(), MainActivity.class);
         //i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(i);
-    }
+    }*/
     private void displayError(NetworkError error) {
         if(error != null) {
             Toast.makeText(this, error.getErrorMessage(), Toast.LENGTH_LONG).show();
@@ -84,7 +87,7 @@ public class Login extends AppCompatActivity {
     }
     private void checkSession() {
         if(PreferencesUtils.getToken(this) != null) {
-            toMainActivity();
+         //   toMainActivity();
         }
     }
     private Boolean validForm() {

@@ -1,8 +1,10 @@
-package be.leeroy.studentapp.view;
+package be.leeroy.studentapp.view.connection;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import be.leeroy.studentapp.R;
 
 public class ConnectionActivity extends AppCompatActivity {
 
