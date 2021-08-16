@@ -5,7 +5,7 @@
     android:layout_height="match_parent">
     <!-- Penser à rajouter le bloc -->
     <TextView
-        android:id="@+id/login_form_header"
+        android:id="@+id/login_title_text"
         android:layout_width="match_parent"
         android:layout_height="180dp"
         android:textAlignment="center"
@@ -20,7 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
-            android:id="@+id/login_form_email_header"
+            android:id="@+id/login_email_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/email"
@@ -28,7 +28,7 @@
             android:textColor="@color/colorAccent"
             />
         <EditText
-            android:id="@+id/login_form_email"
+            android:id="@+id/login_email_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="30dp"
@@ -36,7 +36,7 @@
             android:maxLines="1"
             />
         <TextView
-            android:id="@+id/login_form_password_header"
+            android:id="@+id/login_password_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/password"
@@ -44,7 +44,7 @@
             android:textColor="@color/colorAccent"
             />
         <EditText
-            android:id="@+id/login_form_password"
+            android:id="@+id/login_password_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
@@ -113,7 +113,7 @@
             />
 
         <Button
-            android:id="@+id/login_form_login_button"
+            android:id="@+id/login_login_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/register"
