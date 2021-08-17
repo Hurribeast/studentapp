@@ -1,25 +1,17 @@
 package be.leeroy.studentapp.models;
 
-import androidx.room.Entity;
-import androidx.room.PrimaryKey;
-
-@Entity
 public class School {
-    @PrimaryKey(autoGenerate = true)
+
     private Integer id;
     private String name;
     private String address;
-    private String phonenumber;
+    private String phoneNumber;
 
-    public School(Integer id, String name, String address, String phonenumber) {
+    public School(Integer id, String name, String address, String phoneNumber) {
         this.id = id;
         this.name = name;
         this.address = address;
-        this.phonenumber = phonenumber;
-    }
-
-    public School() {
-
+        this.phoneNumber = phoneNumber;
     }
 
     public Integer getId() {
@@ -46,11 +38,11 @@ public class School {
         this.address = address;
     }
 
-    public String getPhonenumber() {
-        return phonenumber;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setPhonenumber(String phonenumber) {
-        this.phonenumber = phonenumber;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 }

@@ -1,30 +1,19 @@
 package be.leeroy.studentapp.models;
 
-
-import androidx.room.Entity;
-import androidx.room.PrimaryKey;
-
 import java.util.GregorianCalendar;
 
-@Entity
 public class Comment {
-    @PrimaryKey(autoGenerate = true)
+
     private Integer id;
+    private User user;
     private String content;
     private GregorianCalendar date;
-    private String user;
-    private Integer publication;
 
-    public Comment(Integer id, String content, GregorianCalendar date, String user, Integer publication) {
+    public Comment(Integer id, User user, String content, GregorianCalendar date) {
         this.id = id;
         this.content = content;
         this.date = date;
         this.user = user;
-        this.publication = publication;
-    }
-
-    public Comment() {
-
     }
 
     public Integer getId() {
@@ -51,19 +40,11 @@ public class Comment {
         this.date = date;
     }
 
-    public String getUser() {
+    public User getUser() {
         return user;
     }
 
-    public void setUser(String user) {
+    public void setUser(User user) {
         this.user = user;
-    }
-
-    public Integer getPublication() {
-        return publication;
-    }
-
-    public void setPublication(Integer publication) {
-        this.publication = publication;
     }
 }

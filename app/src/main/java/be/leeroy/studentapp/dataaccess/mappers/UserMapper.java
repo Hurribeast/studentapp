@@ -13,9 +13,9 @@ public class UserMapper {
         return instance;
     }
 
-    public User mapToUser(UserDTO userDTO) {
+/*    public User mapToUser(UserDTO userDTO) {
         if(userDTO == null) return null;
 
         return new User();
-    }
+    }*/
 }

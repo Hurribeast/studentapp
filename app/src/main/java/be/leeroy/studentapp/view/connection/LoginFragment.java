@@ -1,14 +1,12 @@
 package be.leeroy.studentapp.view.connection;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
-import androidx.navigation.Navigation;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.annotation.NonNull;
+import androidx.lifecycle.ViewModelProvider;
 
 import be.leeroy.studentapp.R;
 import be.leeroy.studentapp.databinding.FragmentLoginBinding;
@@ -26,7 +24,7 @@ public class LoginFragment extends ExtendFragment {
     private LoginViewModel viewModel;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentLoginBinding.inflate(inflater, container, false);
         viewModel = new ViewModelProvider(this).get(LoginViewModel.class);
 
@@ -40,7 +38,7 @@ public class LoginFragment extends ExtendFragment {
 
         viewModel.getToken().observe(getViewLifecycleOwner(), token -> {
             PreferencesUtils.setToken(token, getActivity());
-            navigateToActivity(MainActivity.class);
+        //    viewModel.loadUserInfos();
         });
 
         viewModel.getError().observe(getViewLifecycleOwner(), this::displayError);

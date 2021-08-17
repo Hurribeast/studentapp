@@ -1,37 +1,23 @@
 package be.leeroy.studentapp.models;
 
-import androidx.room.Entity;
-import androidx.room.PrimaryKey;
-
 import java.util.GregorianCalendar;
 
-@Entity
 public class User {
-    @PrimaryKey
-    private String email;
-    private String password;
-    private String lastname;
-    private GregorianCalendar birthday;
-    private Integer bloc;
-    private String role;
-    private String optionName;
-    private Integer optionSchool;
-    private String token;
 
-    public User(String email, String password, String lastname, GregorianCalendar birthday, Integer bloc, String role, String optionName, Integer optionSchool, String token) {
+    private String email;
+    private String lastname;
+    private String firstname;
+    private GregorianCalendar birthday;
+    private int bloc;
+    private Option option;
+
+    public User(String email, String lastname, String firstname, GregorianCalendar birthday, Integer bloc, Option option) {
         this.email = email;
-        this.password = password;
         this.lastname = lastname;
+        this.firstname = firstname;
         this.birthday = birthday;
         this.bloc = bloc;
-        this.role = role;
-        this.optionName = optionName;
-        this.optionSchool = optionSchool;
-        this.token = token;
-    }
-
-    public User() {
-
+        this.option = option;
     }
 
     public String getEmail() {
@@ -42,20 +28,20 @@ public class User {
         this.email = email;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     public String getLastname() {
         return lastname;
     }
 
     public void setLastname(String lastname) {
         this.lastname = lastname;
+    }
+
+    public String getFirstname() {
+        return firstname;
+    }
+
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
     }
 
     public GregorianCalendar getBirthday() {
@@ -66,43 +52,21 @@ public class User {
         this.birthday = birthday;
     }
 
-    public Integer getBloc() {
+    public int getBloc() {
         return bloc;
     }
 
-    public void setBloc(Integer bloc) {
+    public void setBloc(int bloc) {
         this.bloc = bloc;
     }
 
-    public String getRole() {
-        return role;
+    public Option getOption() {
+        return option;
     }
 
-    public void setRole(String role) {
-        this.role = role;
+    public void setOption(Option option) {
+        this.option = option;
     }
 
-    public String getOptionName() {
-        return optionName;
-    }
 
-    public void setOptionName(String optionName) {
-        this.optionName = optionName;
-    }
-
-    public Integer getOptionSchool() {
-        return optionSchool;
-    }
-
-    public void setOptionSchool(Integer optionSchool) {
-        this.optionSchool = optionSchool;
-    }
-
-    public String getToken() {
-        return token;
-    }
-
-    public void setToken(String token) {
-        this.token = token;
-    }
 }

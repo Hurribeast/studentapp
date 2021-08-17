@@ -10,13 +10,13 @@ import androidx.fragment.app.FragmentManager;
 import androidx.navigation.Navigation;
 
 import be.leeroy.studentapp.R;
-import be.leeroy.studentapp.models.NetworkError;
+import be.leeroy.studentapp.models.errors.Errors;
 
 public class ExtendFragment extends Fragment {
 
-    public void displayError(NetworkError error) {
+    public void displayError(Errors error) {
         if(error != null) {
-            Toast.makeText(getActivity(), error.getErrorMessage(), Toast.LENGTH_LONG).show();
+            Toast.makeText(getActivity(), error.getMessage(), Toast.LENGTH_LONG).show();
         }
     }
 

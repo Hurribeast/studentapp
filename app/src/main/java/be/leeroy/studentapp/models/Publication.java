@@ -1,35 +1,57 @@
 package be.leeroy.studentapp.models;
 
-import androidx.room.Entity;
-import androidx.room.PrimaryKey;
-
 import java.util.GregorianCalendar;
 
-@Entity
 public class Publication {
-    @PrimaryKey(autoGenerate = true)
-    private Integer id;
+
+    private int id;
+    private User user;
     private String content;
     private GregorianCalendar date;
-    private String user;
+    private Comment[] comments;
+    private User[] likes;
+    private User[] reports;
 
-    public Publication(Integer id, String content, GregorianCalendar date, String user) {
+    public Publication(int id, User user, String content, GregorianCalendar date, Comment[] comments, User[] likes, User[] reports) {
         this.id = id;
+        this.user = user;
         this.content = content;
         this.date = date;
-        this.user = user;
+        this.comments = comments;
+        this.likes = likes;
+        this.reports = reports;
     }
 
-    public Publication() {
-
-    }
-
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
+    }
+
+    public User[] getLikes() {
+        return likes;
+    }
+
+    public void setLikes(User[] likes) {
+        this.likes = likes;
+    }
+
+    public User[] getReports() {
+        return reports;
+    }
+
+    public void setReports(User[] reports) {
+        this.reports = reports;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public String getContent() {
@@ -48,11 +70,11 @@ public class Publication {
         this.date = date;
     }
 
-    public String getUser() {
-        return user;
+    public Comment[] getComments() {
+        return comments;
     }
 
-    public void setUser(String user) {
-        this.user = user;
+    public void setComments(Comment[] comments) {
+        this.comments = comments;
     }
 }

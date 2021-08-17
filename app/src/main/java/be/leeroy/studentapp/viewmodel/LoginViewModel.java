@@ -13,7 +13,7 @@ import java.util.HashMap;
 
 import be.leeroy.studentapp.dataaccess.LoginDataAccess;
 import be.leeroy.studentapp.exceptions.NoConnectivityException;
-import be.leeroy.studentapp.models.NetworkError;
+import be.leeroy.studentapp.models.errors.Errors;
 import be.leeroy.studentapp.services.RetrofitConfigurationService;
 import be.leeroy.studentapp.utils.ApiUtils;
 import okhttp3.RequestBody;
@@ -25,8 +25,8 @@ public class LoginViewModel extends AndroidViewModel {
     private final MutableLiveData<String> _token = new MutableLiveData<>();
     private final LiveData<String> token = _token;
 
-    private final MutableLiveData<NetworkError> _error = new MutableLiveData<>();
-    private final LiveData<NetworkError> error = _error;
+    private final MutableLiveData<Errors> _error = new MutableLiveData<>();
+    private final LiveData<Errors> error = _error;
 
     private final LoginDataAccess loginDataAccess;
 
@@ -49,17 +49,19 @@ public class LoginViewModel extends AndroidViewModel {
                 if (response.isSuccessful()) {
                     _token.setValue(response.body());
                     _error.setValue(null);
+                } else if(response.code() == 404) {
+                    _error.setValue(Errors.PASSWORD_INCORRECT);
                 } else {
-                    _error.setValue(NetworkError.REQUEST_ERROR);
+                    _error.setValue(Errors.REQUEST_ERROR);
                 }
             }
 
             @Override
             public void onFailure(@NotNull Call<String> call, @NotNull Throwable t) {
                 if (t instanceof NoConnectivityException) {
-                    _error.setValue(NetworkError.NO_CONNECTION);
+                    _error.setValue(Errors.NO_CONNECTION);
                 } else {
-                    _error.setValue(NetworkError.TECHNICAL_ERROR);
+                    _error.setValue(Errors.TECHNICAL_ERROR);
                 }
             }
         });
@@ -69,7 +71,7 @@ public class LoginViewModel extends AndroidViewModel {
         return token;
     }
 
-    public LiveData<NetworkError> getError() {
+    public LiveData<Errors> getError() {
         return error;
     }
 }
