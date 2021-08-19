@@ -38,7 +38,7 @@ public class LoginFragment extends ExtendFragment {
 
         viewModel.getToken().observe(getViewLifecycleOwner(), token -> {
             PreferencesUtils.setToken(token, getActivity());
-        //    viewModel.loadUserInfos();
+            navigateToActivity(MainActivity.class);
         });
 
         viewModel.getError().observe(getViewLifecycleOwner(), this::displayError);
