@@ -5,18 +5,25 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
+import androidx.lifecycle.ViewModelProvider;
+
 import be.leeroy.studentapp.databinding.FragmentRegisterBinding;
+import be.leeroy.studentapp.viewmodel.LoginViewModel;
+import be.leeroy.studentapp.viewmodel.RegisterViewModel;
 
 public class RegisterFragment extends ExtendFragment {
+
+    private FragmentRegisterBinding binding;
+    private RegisterViewModel viewModel;
 
     public RegisterFragment() {
     }
 
-    private FragmentRegisterBinding binding;
-
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentRegisterBinding.inflate(inflater, container, false);
+        viewModel = new ViewModelProvider(this).get(RegisterViewModel.class);
 
         binding.registerFormBackButton.setOnClickListener(view -> navigateToBackFragment());
 

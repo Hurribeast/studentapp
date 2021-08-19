@@ -3,14 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/justi/Desktop/Developpement/Student/StudentApp/studentapp/app/src/main/res/layout/activity_connection.xml" value="0.2515625" />
-        <entry key="..\:/Users/justi/Desktop/Developpement/Student/StudentApp/studentapp/app/src/main/res/layout/activity_main.xml" value="0.36820652173913043" />
-        <entry key="..\:/Users/justi/Desktop/Developpement/Student/StudentApp/studentapp/app/src/main/res/layout/activity_starting.xml" value="0.25692695214105793" />
-        <entry key="..\:/Users/justi/Desktop/Developpement/Student/StudentApp/studentapp/app/src/main/res/layout/content_main.xml" value="0.371875" />
-        <entry key="..\:/Users/justi/Desktop/Developpement/Student/StudentApp/studentapp/app/src/main/res/layout/fragment_first.xml" value="0.371875" />
-        <entry key="..\:/Users/justi/Desktop/Developpement/Student/StudentApp/studentapp/app/src/main/res/layout/fragment_login.xml" value="0.25" />
-        <entry key="..\:/Users/justi/Desktop/Developpement/Student/StudentApp/studentapp/app/src/main/res/layout/fragment_register.xml" value="0.20885416666666667" />
-        <entry key="..\:/Users/justi/Desktop/Developpement/Student/StudentApp/studentapp/app/src/main/res/layout/login_activity.xml" value="0.20885416666666667" />
+        <entry key="..\:/Proj/studentapp/app/src/main/res/layout/fragment_login.xml" value="0.2" />
+        <entry key="..\:/Proj/studentapp/app/src/main/res/layout/login_activity.xml" value="0.18034447821681865" />
+        <entry key="..\:/Proj/studentapp/app/src/main/res/layout/register_activity.xml" value="0.33" />
       </map>
     </option>
   </component>
