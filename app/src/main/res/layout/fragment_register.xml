@@ -1,31 +1,184 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".view.connection.RegisterFragment">
 
+
     <TextView
-        android:id="@+id/register_form_header"
-        android:layout_width="match_parent"
-        android:layout_height="180dp"
+        android:id="@+id/textView4"
+        android:layout_width="410dp"
+        android:layout_height="201dp"
+        android:text="@string/register"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         android:textAlignment="center"
         android:textColor="#fff"
         android:background="@drawable/bg_app"
         android:paddingVertical="55dp"
         android:textSize="35sp"
-        android:fontFamily="cursive"
-        android:layout_marginBottom="25dp"
-        android:text="Register"/>
+        android:fontFamily="cursive"/>
+
+    <EditText
+        android:id="@+id/register_email_input"
+        android:layout_width="247dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        tools:layout_editor_absoluteX="141dp"
+        tools:layout_editor_absoluteY="237dp" />
+
+    <EditText
+        android:id="@+id/register_password_input"
+        android:layout_width="247dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        tools:layout_editor_absoluteX="141dp"
+        tools:layout_editor_absoluteY="289dp" />
+
+    <EditText
+        android:id="@+id/register_confirm_password_input"
+        android:layout_width="247dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        tools:layout_editor_absoluteX="141dp"
+        tools:layout_editor_absoluteY="345dp" />
+
+    <EditText
+        android:id="@+id/register_lastname_input"
+        android:layout_width="247dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        tools:layout_editor_absoluteX="142dp"
+        tools:layout_editor_absoluteY="397dp" />
+
+    <EditText
+        android:id="@+id/register_firstname_input"
+        android:layout_width="247dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        tools:layout_editor_absoluteX="141dp"
+        tools:layout_editor_absoluteY="451dp" />
+
+    <TextView
+        android:id="@+id/register_email_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/email"
+        android:color="@color/colorAccent"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="237dp" />
+
+    <TextView
+        android:id="@+id/register_password_label"
+        android:layout_width="72dp"
+        android:layout_height="20dp"
+        android:text="@string/password"
+        android:color="@color/colorAccent"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="289dp" />
+
+    <TextView
+        android:id="@+id/register_confirm_password_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:color="@color/colorAccent"
+        android:text="@string/confirm_password"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="345dp" />
+
+    <TextView
+        android:id="@+id/register_lastname_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/lastname"
+        android:color="@color/colorAccent"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="397dp" />
+
+    <TextView
+        android:id="@+id/register_firstname_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/firstname"
+        android:color="@color/colorAccent"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="451dp" />
+
+    <TextView
+        android:id="@+id/register_birthday_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/birthday"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="505dp" />
+
+    <TextView
+        android:id="@+id/register_school_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/school"
+        android:color="@color/colorAccent"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="565dp" />
+
+    <TextView
+        android:id="@+id/register_option_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/option"
+        android:color="@color/colorAccent"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="624dp" />
+
+    <EditText
+        android:id="@+id/register_birthday_input"
+        android:layout_width="246dp"
+        android:layout_height="39dp"
+        android:ems="10"
+        android:inputType="date"
+        tools:layout_editor_absoluteX="142dp"
+        tools:layout_editor_absoluteY="505dp" />
+
+    <Spinner
+        android:id="@+id/register_school_spinner"
+        android:layout_width="256dp"
+        android:layout_height="46dp"
+        tools:layout_editor_absoluteX="139dp"
+        tools:layout_editor_absoluteY="565dp" />
+
+    <Spinner
+        android:id="@+id/register_option_spinner"
+        android:layout_width="256dp"
+        android:layout_height="46dp"
+        tools:layout_editor_absoluteX="139dp"
+        tools:layout_editor_absoluteY="624dp" />
 
     <Button
-        android:id="@+id/register_form_back_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Back"
-        android:textColor="#fff"
-        android:layout_marginHorizontal="30dp"
-        android:background="@drawable/login_button_bg"/>
+        android:id="@+id/register_button"
+        android:layout_width="163dp"
+        android:layout_height="35dp"
+        android:background="@drawable/login_button_bg"
+        android:color="#fff"
+        android:text="@string/register"
+        tools:layout_editor_absoluteX="226dp"
+        tools:layout_editor_absoluteY="680dp" />
 
-</LinearLayout>
+    <Button
+        android:id="@+id/register_back_button"
+        android:layout_width="163dp"
+        android:layout_height="35dp"
+        android:text="@string/back"
+        android:background="@drawable/login_button_bg"
+        android:color="#fff"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="680dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
