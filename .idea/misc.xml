@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Proj/studentapp/app/src/main/res/layout/fragment_login.xml" value="0.2" />
+        <entry key="..\:/Proj/studentapp/app/src/main/res/layout/fragment_register.xml" value="0.2" />
         <entry key="..\:/Proj/studentapp/app/src/main/res/layout/login_activity.xml" value="0.18034447821681865" />
         <entry key="..\:/Proj/studentapp/app/src/main/res/layout/register_activity.xml" value="0.33" />
       </map>

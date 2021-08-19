@@ -9,7 +9,6 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.ViewModelProvider;
 
 import be.leeroy.studentapp.databinding.FragmentRegisterBinding;
-import be.leeroy.studentapp.viewmodel.LoginViewModel;
 import be.leeroy.studentapp.viewmodel.RegisterViewModel;
 
 public class RegisterFragment extends ExtendFragment {
@@ -25,8 +24,22 @@ public class RegisterFragment extends ExtendFragment {
         binding = FragmentRegisterBinding.inflate(inflater, container, false);
         viewModel = new ViewModelProvider(this).get(RegisterViewModel.class);
 
-        binding.registerFormBackButton.setOnClickListener(view -> navigateToBackFragment());
+        binding.registerBackButton.setOnClickListener(view -> navigateToBackFragment());
+        //binding.registerButton.setOnClickListener(view ->navigateToFragment()); -> Créer une vue pour inscription validée
 
         return binding.getRoot();
+    }
+
+    private Boolean validForm() {
+        Boolean isValid = true;
+        String email = binding.registerEmailInput.getText().toString();
+        String password = binding.registerPasswordInput.getText().toString();
+        String confirmationPassword = binding.registerConfirmPasswordInput.getText().toString();
+        String lastname = binding.registerLastnameInput.getText().toString();
+        String firstname = binding.registerFirstnameInput.getText().toString();
+        String birthday = binding.registerBirthdayInput.getText().toString();
+
+
+        return isValid;
     }
 }
