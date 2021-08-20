@@ -1,7 +1,5 @@
 package be.leeroy.studentapp.dataaccess.dto;
 
-import java.util.Date;
-
 public class UserDTO {
 
     private String email;

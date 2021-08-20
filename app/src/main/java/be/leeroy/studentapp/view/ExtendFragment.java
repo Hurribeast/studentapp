@@ -1,4 +1,4 @@
-package be.leeroy.studentapp.view.connection;
+package be.leeroy.studentapp.view;
 
 import android.content.Intent;
 import android.view.View;

@@ -6,6 +6,7 @@ import com.squareup.moshi.Moshi;
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory;
 
 import be.leeroy.studentapp.dataaccess.LoginDataAccess;
+import be.leeroy.studentapp.dataaccess.PublicationDataAccess;
 import be.leeroy.studentapp.dataaccess.UserDataAccess;
 import be.leeroy.studentapp.utils.ConnectivityCheckInterceptor;
 import okhttp3.OkHttpClient;
@@ -18,6 +19,7 @@ public class RetrofitConfigurationService {
     // DataAccess
     private UserDataAccess userDataAccess = null;
     private LoginDataAccess loginDataAccess = null;
+    private PublicationDataAccess publicationDataAccess = null;
 
     // Retrofit client creation
     private Retrofit retrofitClient;
@@ -60,5 +62,13 @@ public class RetrofitConfigurationService {
         }
 
         return loginDataAccess;
+    }
+
+    public PublicationDataAccess publicationDataAccess(){
+        if(publicationDataAccess == null){
+            publicationDataAccess = retrofitClient.create(PublicationDataAccess.class);
+        }
+
+        return publicationDataAccess;
     }
 }

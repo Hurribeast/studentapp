@@ -10,7 +10,8 @@ import androidx.lifecycle.ViewModelProvider;
 
 import be.leeroy.studentapp.databinding.FragmentFeedBinding;
 import be.leeroy.studentapp.utils.PreferencesUtils;
-import be.leeroy.studentapp.view.connection.ExtendFragment;
+import be.leeroy.studentapp.view.connection.ConnectionActivity;
+import be.leeroy.studentapp.view.ExtendFragment;
 import be.leeroy.studentapp.viewmodel.FeedViewModel;
 
 public class FeedFragment extends ExtendFragment {
@@ -26,7 +27,11 @@ public class FeedFragment extends ExtendFragment {
         binding = FragmentFeedBinding.inflate(inflater, container, false);
         viewModel = new ViewModelProvider(this).get(FeedViewModel.class);
 
-        binding.feedLoadUserButton.setOnClickListener(view -> viewModel.loadCurrentUser("Bearer " + PreferencesUtils.getToken(getActivity())));
+        binding.feedLoadUserButton.setOnClickListener(view -> {
+            viewModel.loadPublications("Bearer " + PreferencesUtils.getToken(getActivity()));
+        /*    PreferencesUtils.removeToken(getActivity());
+            navigateToActivity(ConnectionActivity.class); */
+        });
 
         return binding.getRoot();
     }

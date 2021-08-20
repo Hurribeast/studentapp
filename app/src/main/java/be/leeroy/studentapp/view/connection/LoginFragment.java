@@ -12,6 +12,7 @@ import be.leeroy.studentapp.R;
 import be.leeroy.studentapp.databinding.FragmentLoginBinding;
 import be.leeroy.studentapp.utils.PreferencesUtils;
 import be.leeroy.studentapp.utils.RegexValidation;
+import be.leeroy.studentapp.view.ExtendFragment;
 import be.leeroy.studentapp.view.main.MainActivity;
 import be.leeroy.studentapp.viewmodel.LoginViewModel;
 

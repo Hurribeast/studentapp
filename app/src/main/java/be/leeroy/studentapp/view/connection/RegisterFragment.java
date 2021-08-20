@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.ViewModelProvider;
 
 import be.leeroy.studentapp.databinding.FragmentRegisterBinding;
+import be.leeroy.studentapp.view.ExtendFragment;
 import be.leeroy.studentapp.viewmodel.RegisterViewModel;
 
 public class RegisterFragment extends ExtendFragment {

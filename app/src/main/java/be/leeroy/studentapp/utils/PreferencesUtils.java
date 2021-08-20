@@ -19,4 +19,13 @@ public class PreferencesUtils {
 
         editor.apply();
     }
+
+    public static void removeToken(Activity activity) {
+        SharedPreferences preferences = activity.getSharedPreferences("login", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+
+        editor.remove("token");
+
+        editor.apply();
+    }
 }

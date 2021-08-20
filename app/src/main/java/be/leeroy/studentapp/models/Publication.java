@@ -9,17 +9,26 @@ public class Publication {
     private String content;
     private GregorianCalendar date;
     private Comment[] comments;
-    private User[] likes;
-    private User[] reports;
+    private int nbLikes;
+    private int nbReports;
 
-    public Publication(int id, User user, String content, GregorianCalendar date, Comment[] comments, User[] likes, User[] reports) {
+    public Publication(int id, User user, String content, GregorianCalendar date, Comment[] comments, int nbLikes, int nbReports) {
         this.id = id;
         this.user = user;
         this.content = content;
         this.date = date;
         this.comments = comments;
-        this.likes = likes;
-        this.reports = reports;
+        this.nbLikes = nbLikes;
+        this.nbReports = nbReports;
+    }
+
+    public Publication(int id, User user, String content, GregorianCalendar date, int nbLikes, int nbReports) {
+        this.id = id;
+        this.user = user;
+        this.content = content;
+        this.date = date;
+        this.nbLikes = nbLikes;
+        this.nbReports = nbReports;
     }
 
     public int getId() {
@@ -30,20 +39,20 @@ public class Publication {
         this.id = id;
     }
 
-    public User[] getLikes() {
-        return likes;
+    public int getNbLikes() {
+        return nbLikes;
     }
 
-    public void setLikes(User[] likes) {
-        this.likes = likes;
+    public void setNbLikes(int nbLikes) {
+        this.nbLikes = nbLikes;
     }
 
-    public User[] getReports() {
-        return reports;
+    public int getNbReports() {
+        return nbReports;
     }
 
-    public void setReports(User[] reports) {
-        this.reports = reports;
+    public void setNbReports(int nbReports) {
+        this.nbReports = nbReports;
     }
 
     public User getUser() {
