@@ -34,7 +34,11 @@ public class PublicationMapper {
         }
         GregorianCalendar gregDate = new GregorianCalendar();
 
-        return new Publication(publicationDTO.getId(), user, publicationDTO.getContent(), gregDate, publicationDTO.getNblikes(), publicationDTO.getNbreports());
+        if (date != null) {
+            gregDate.setTime(date);
+        }
+
+        return new Publication(publicationDTO.getId(), user, publicationDTO.getContent(), gregDate, publicationDTO.getNblikes(), publicationDTO.getNbreports(), publicationDTO.getNbcomments());
     }
 
 }

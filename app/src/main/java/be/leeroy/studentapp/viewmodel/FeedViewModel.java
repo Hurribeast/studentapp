@@ -109,6 +109,10 @@ public class FeedViewModel extends AndroidViewModel {
         return user;
     }
 
+    public LiveData<Publication[]> getPublications() {
+        return publications;
+    }
+
     public LiveData<Errors> getError() {
         return error;
     }

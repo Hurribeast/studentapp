@@ -8,16 +8,16 @@ public class Publication {
     private User user;
     private String content;
     private GregorianCalendar date;
-    private Comment[] comments;
     private int nbLikes;
     private int nbReports;
+    private int nbComments;
 
-    public Publication(int id, User user, String content, GregorianCalendar date, Comment[] comments, int nbLikes, int nbReports) {
+    public Publication(int id, User user, String content, GregorianCalendar date, int nbLikes, int nbReports, int nbComments) {
         this.id = id;
         this.user = user;
         this.content = content;
         this.date = date;
-        this.comments = comments;
+        this.nbComments = nbComments;
         this.nbLikes = nbLikes;
         this.nbReports = nbReports;
     }
@@ -79,11 +79,11 @@ public class Publication {
         this.date = date;
     }
 
-    public Comment[] getComments() {
-        return comments;
+    public int getNbComments() {
+        return nbComments;
     }
 
-    public void setComments(Comment[] comments) {
-        this.comments = comments;
+    public void setNbComments(int nbComments) {
+        this.nbComments = nbComments;
     }
 }

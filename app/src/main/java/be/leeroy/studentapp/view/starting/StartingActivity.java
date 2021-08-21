@@ -30,7 +30,7 @@ public class StartingActivity extends ExtendActivity {
         if (token != null) {
             JWT jwtToken = new JWT(token);
 
-            if(!jwtToken.isExpired(3600))
+            if(!jwtToken.isExpired(0))
                 navigateToActivity(MainActivity.class);
             else
                 navigateToActivity(ConnectionActivity.class);

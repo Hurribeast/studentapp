@@ -15,6 +15,15 @@ public class PublicationDTO {
 
     private int nblikes;
     private int nbreports;
+    private int nbcomments;
+
+    public int getNbcomments() {
+        return nbcomments;
+    }
+
+    public void setNbcomments(int nbcomments) {
+        this.nbcomments = nbcomments;
+    }
 
     public int getId() {
         return id;
