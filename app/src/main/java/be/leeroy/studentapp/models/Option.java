@@ -35,4 +35,9 @@ public class Option {
     public void setNbYears(int nbYears) {
         this.nbYears = nbYears;
     }
+
+    @Override
+    public String toString() {
+        return this.getName();
+    }
 }

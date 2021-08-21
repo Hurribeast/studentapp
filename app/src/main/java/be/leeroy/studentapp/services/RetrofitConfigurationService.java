@@ -7,6 +7,7 @@ import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory;
 
 import be.leeroy.studentapp.dataaccess.LoginDataAccess;
 import be.leeroy.studentapp.dataaccess.PublicationDataAccess;
+import be.leeroy.studentapp.dataaccess.SchoolDataAccess;
 import be.leeroy.studentapp.dataaccess.UserDataAccess;
 import be.leeroy.studentapp.utils.ConnectivityCheckInterceptor;
 import okhttp3.OkHttpClient;
@@ -14,12 +15,13 @@ import retrofit2.Retrofit;
 import retrofit2.converter.moshi.MoshiConverterFactory;
 
 public class RetrofitConfigurationService {
-    private static final String BASE_URL = "http://192.168.0.14:3001/";
+    private static final String BASE_URL = "https://neat-donkey-69.loca.lt/";
 
     // DataAccess
     private UserDataAccess userDataAccess = null;
     private LoginDataAccess loginDataAccess = null;
     private PublicationDataAccess publicationDataAccess = null;
+    private SchoolDataAccess schoolDataAccess = null;
 
     // Retrofit client creation
     private Retrofit retrofitClient;
@@ -70,5 +72,13 @@ public class RetrofitConfigurationService {
         }
 
         return publicationDataAccess;
+    }
+
+    public SchoolDataAccess schoolDataAccess() {
+        if(schoolDataAccess == null) {
+            schoolDataAccess = retrofitClient.create(SchoolDataAccess.class);
+        }
+
+        return schoolDataAccess;
     }
 }

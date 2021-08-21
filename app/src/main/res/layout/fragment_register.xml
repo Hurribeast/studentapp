@@ -10,25 +10,26 @@
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="410dp"
-        android:layout_height="201dp"
+        android:layout_width="444dp"
+        android:layout_height="125dp"
+        android:background="@drawable/bg_app"
+        android:fontFamily="cursive"
+        android:paddingVertical="35dp"
         android:text="@string/register"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         android:textAlignment="center"
         android:textColor="#fff"
-        android:background="@drawable/bg_app"
-        android:paddingVertical="55dp"
         android:textSize="35sp"
-        android:fontFamily="cursive"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/register_email_input"
-        android:layout_width="247dp"
+        android:layout_width="246dp"
         android:layout_height="40dp"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="23dp"
+        android:layout_marginStart="98dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="36dp"
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
@@ -37,7 +38,7 @@
 
     <EditText
         android:id="@+id/register_password_input"
-        android:layout_width="247dp"
+        android:layout_width="246dp"
         android:layout_height="40dp"
         android:layout_marginStart="53dp"
         android:layout_marginTop="12dp"
@@ -50,7 +51,7 @@
 
     <EditText
         android:id="@+id/register_confirm_password_input"
-        android:layout_width="247dp"
+        android:layout_width="246dp"
         android:layout_height="40dp"
         android:layout_marginStart="3dp"
         android:layout_marginTop="15dp"
@@ -63,7 +64,7 @@
 
     <EditText
         android:id="@+id/register_lastname_input"
-        android:layout_width="247dp"
+        android:layout_width="246dp"
         android:layout_height="40dp"
         android:layout_marginStart="54dp"
         android:layout_marginTop="13dp"
@@ -76,7 +77,7 @@
 
     <EditText
         android:id="@+id/register_firstname_input"
-        android:layout_width="247dp"
+        android:layout_width="246dp"
         android:layout_height="40dp"
         android:layout_marginStart="52dp"
         android:layout_marginTop="14dp"
@@ -91,77 +92,94 @@
         android:id="@+id/register_email_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="36dp"
+        android:textColor="@color/colorAccent"
         android:text="@string/email"
-        android:color="@color/colorAccent"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="237dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <TextView
         android:id="@+id/register_password_label"
         android:layout_width="72dp"
         android:layout_height="20dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="33dp"
+        android:textColor="@color/colorAccent"
         android:text="@string/password"
-        android:color="@color/colorAccent"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="289dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/register_email_label" />
 
     <TextView
         android:id="@+id/register_confirm_password_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:color="@color/colorAccent"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="35dp"
+        android:textColor="@color/colorAccent"
         android:text="@string/confirm_password"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="345dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/register_password_label" />
 
     <TextView
         android:id="@+id/register_lastname_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="33dp"
+        android:textColor="@color/colorAccent"
         android:text="@string/lastname"
-        android:color="@color/colorAccent"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="397dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/register_confirm_password_label" />
 
     <TextView
         android:id="@+id/register_firstname_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="34dp"
+        android:textColor="@color/colorAccent"
         android:text="@string/firstname"
-        android:color="@color/colorAccent"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="451dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/register_lastname_label" />
 
     <TextView
         android:id="@+id/register_birthday_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="35dp"
         android:text="@string/birthday"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="505dp" />
+        android:textColor="@color/colorAccent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/register_firstname_label" />
 
     <TextView
         android:id="@+id/register_school_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="40dp"
+        android:textColor="@color/colorAccent"
         android:text="@string/school"
-        android:color="@color/colorAccent"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="565dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/register_birthday_label" />
 
     <TextView
         android:id="@+id/register_option_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="40dp"
+        android:textColor="@color/colorAccent"
         android:text="@string/option"
-        android:color="@color/colorAccent"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="624dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/register_school_label" />
 
     <EditText
         android:id="@+id/register_birthday_input"
         android:layout_width="246dp"
-        android:layout_height="39dp"
+        android:layout_height="40dp"
         android:layout_marginStart="64dp"
         android:layout_marginTop="14dp"
         android:layout_marginEnd="23dp"
@@ -173,23 +191,25 @@
 
     <Spinner
         android:id="@+id/register_school_spinner"
-        android:layout_width="256dp"
-        android:layout_height="46dp"
+        android:layout_width="246dp"
+        android:layout_height="40dp"
         android:layout_marginStart="73dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.416"
         app:layout_constraintStart_toEndOf="@+id/register_school_label"
         app:layout_constraintTop_toBottomOf="@+id/register_birthday_input" />
 
     <Spinner
         android:id="@+id/register_option_spinner"
-        android:layout_width="256dp"
-        android:layout_height="46dp"
+        android:layout_width="246dp"
+        android:layout_height="40dp"
         android:layout_marginStart="75dp"
-        android:layout_marginTop="13dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toEndOf="@+id/register_option_label"
         app:layout_constraintTop_toBottomOf="@+id/register_school_spinner" />
 
@@ -197,23 +217,30 @@
         android:id="@+id/register_button"
         android:layout_width="163dp"
         android:layout_height="35dp"
+        android:layout_marginTop="29dp"
+        android:layout_marginEnd="35dp"
+        android:layout_marginBottom="56dp"
         android:background="@drawable/login_button_bg"
-        android:color="#fff"
+        android:textColor="#fff"
         android:text="@string/register"
-        tools:layout_editor_absoluteX="226dp"
-        tools:layout_editor_absoluteY="680dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/register_option_spinner" />
 
     <Button
         android:id="@+id/register_back_button"
         android:layout_width="163dp"
         android:layout_height="35dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="28dp"
         android:layout_marginEnd="47dp"
+        android:layout_marginBottom="56dp"
         android:background="@drawable/login_button_bg"
-        android:color="#fff"
+        android:textColor="#fff"
         android:text="@string/back"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/register_button"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/register_option_spinner" />
 

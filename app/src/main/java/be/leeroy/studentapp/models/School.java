@@ -13,6 +13,9 @@ public class School {
         this.address = address;
         this.phoneNumber = phoneNumber;
     }
+    public School(Integer id) {
+        this.id = id;
+    }
 
     public Integer getId() {
         return id;
@@ -44,5 +47,10 @@ public class School {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    @Override
+    public String toString() {
+        return this.getName();
     }
 }
