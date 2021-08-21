@@ -26,46 +26,66 @@
         android:id="@+id/register_email_input"
         android:layout_width="247dp"
         android:layout_height="40dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="23dp"
         android:ems="10"
         android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="141dp"
-        tools:layout_editor_absoluteY="237dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/register_email_label"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <EditText
         android:id="@+id/register_password_input"
         android:layout_width="247dp"
         android:layout_height="40dp"
+        android:layout_marginStart="53dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="23dp"
         android:ems="10"
         android:inputType="textPassword"
-        tools:layout_editor_absoluteX="141dp"
-        tools:layout_editor_absoluteY="289dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/register_password_label"
+        app:layout_constraintTop_toBottomOf="@+id/register_email_input" />
 
     <EditText
         android:id="@+id/register_confirm_password_input"
         android:layout_width="247dp"
         android:layout_height="40dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="23dp"
         android:ems="10"
         android:inputType="textPassword"
-        tools:layout_editor_absoluteX="141dp"
-        tools:layout_editor_absoluteY="345dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/register_confirm_password_label"
+        app:layout_constraintTop_toBottomOf="@+id/register_password_input" />
 
     <EditText
         android:id="@+id/register_lastname_input"
         android:layout_width="247dp"
         android:layout_height="40dp"
+        android:layout_marginStart="54dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="22dp"
         android:ems="10"
         android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="142dp"
-        tools:layout_editor_absoluteY="397dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/register_lastname_label"
+        app:layout_constraintTop_toBottomOf="@+id/register_confirm_password_input" />
 
     <EditText
         android:id="@+id/register_firstname_input"
         android:layout_width="247dp"
         android:layout_height="40dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="23dp"
         android:ems="10"
         android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="141dp"
-        tools:layout_editor_absoluteY="451dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/register_firstname_label"
+        app:layout_constraintTop_toBottomOf="@+id/register_lastname_input" />
 
     <TextView
         android:id="@+id/register_email_label"
@@ -142,24 +162,36 @@
         android:id="@+id/register_birthday_input"
         android:layout_width="246dp"
         android:layout_height="39dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="23dp"
         android:ems="10"
         android:inputType="date"
-        tools:layout_editor_absoluteX="142dp"
-        tools:layout_editor_absoluteY="505dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/register_birthday_label"
+        app:layout_constraintTop_toBottomOf="@+id/register_firstname_input" />
 
     <Spinner
         android:id="@+id/register_school_spinner"
         android:layout_width="256dp"
         android:layout_height="46dp"
-        tools:layout_editor_absoluteX="139dp"
-        tools:layout_editor_absoluteY="565dp" />
+        android:layout_marginStart="73dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/register_school_label"
+        app:layout_constraintTop_toBottomOf="@+id/register_birthday_input" />
 
     <Spinner
         android:id="@+id/register_option_spinner"
         android:layout_width="256dp"
         android:layout_height="46dp"
-        tools:layout_editor_absoluteX="139dp"
-        tools:layout_editor_absoluteY="624dp" />
+        android:layout_marginStart="75dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/register_option_label"
+        app:layout_constraintTop_toBottomOf="@+id/register_school_spinner" />
 
     <Button
         android:id="@+id/register_button"
@@ -175,10 +207,14 @@
         android:id="@+id/register_back_button"
         android:layout_width="163dp"
         android:layout_height="35dp"
-        android:text="@string/back"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="47dp"
         android:background="@drawable/login_button_bg"
         android:color="#fff"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="680dp" />
+        android:text="@string/back"
+        app:layout_constraintEnd_toStartOf="@+id/register_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/register_option_spinner" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
