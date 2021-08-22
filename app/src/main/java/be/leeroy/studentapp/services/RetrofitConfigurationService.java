@@ -15,7 +15,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.moshi.MoshiConverterFactory;
 
 public class RetrofitConfigurationService {
-    private static final String BASE_URL = "https://neat-donkey-69.loca.lt/";
+    private static final String BASE_URL = "https://afraid-lionfish-48.loca.lt/";
 
     // DataAccess
     private UserDataAccess userDataAccess = null;

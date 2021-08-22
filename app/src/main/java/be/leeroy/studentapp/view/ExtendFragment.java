@@ -1,7 +1,9 @@
 package be.leeroy.studentapp.view;
 
+import android.content.Context;
 import android.content.Intent;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
 
 import androidx.annotation.IdRes;
@@ -11,6 +13,7 @@ import androidx.navigation.Navigation;
 
 import be.leeroy.studentapp.R;
 import be.leeroy.studentapp.models.errors.Errors;
+import be.leeroy.studentapp.utils.PreferencesUtils;
 
 public class ExtendFragment extends Fragment {
 
@@ -35,6 +38,17 @@ public class ExtendFragment extends Fragment {
 
     public void navigateToBackFragment(){
         getActivity().onBackPressed();
+    }
+
+    public void hideKeyboard(View view){
+        if (view != null) {
+            InputMethodManager imm = (InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
+    }
+
+    public String getBearerAuth(){
+        return "Bearer " + PreferencesUtils.getToken(getActivity());
     }
 
 }

@@ -9,8 +9,6 @@ import androidx.lifecycle.MutableLiveData;
 
 import org.jetbrains.annotations.NotNull;
 
-import java.util.ArrayList;
-
 import be.leeroy.studentapp.dataaccess.PublicationDataAccess;
 import be.leeroy.studentapp.dataaccess.UserDataAccess;
 import be.leeroy.studentapp.dataaccess.dto.PublicationDTO;

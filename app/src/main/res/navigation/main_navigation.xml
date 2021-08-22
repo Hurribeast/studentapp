@@ -9,5 +9,27 @@
         android:id="@+id/feedFragment"
         android:name="be.leeroy.studentapp.view.main.FeedFragment"
         android:label="fragment_feed"
-        tools:layout="@layout/fragment_feed" />
+        tools:layout="@layout/fragment_feed" >
+        <action
+            android:id="@+id/feedFragment_to_newPublicationFragment"
+            app:destination="@id/newPublicationFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/newPublicationFragment"
+        android:name="be.leeroy.studentapp.view.main.NewPublicationFragment"
+        android:label="fragment_new_publication"
+        tools:layout="@layout/fragment_new_publication" >
+        <action
+            android:id="@+id/newPublicationFragment_to_feedFragment"
+            app:destination="@id/feedFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="be.leeroy.studentapp.view.main.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
 </navigation>

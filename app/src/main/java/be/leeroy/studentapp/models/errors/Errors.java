@@ -1,7 +1,5 @@
 package be.leeroy.studentapp.models.errors;
 
-import android.content.res.Resources;
-
 import be.leeroy.studentapp.App;
 import be.leeroy.studentapp.R;
 
