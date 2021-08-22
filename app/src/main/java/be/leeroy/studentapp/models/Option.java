@@ -12,6 +12,10 @@ public class Option {
         this.nbYears = nbYears;
     }
 
+    public Option(String name){
+        this.name = name;
+    }
+
     public School getSchool() {
         return school;
     }

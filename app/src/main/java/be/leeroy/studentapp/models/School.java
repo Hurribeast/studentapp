@@ -2,26 +2,32 @@ package be.leeroy.studentapp.models;
 
 public class School {
 
-    private Integer id;
+    private int id;
     private String name;
     private String address;
     private String phoneNumber;
 
-    public School(Integer id, String name, String address, String phoneNumber) {
+    public School(int id, String name, String address, String phoneNumber) {
         this.id = id;
         this.name = name;
         this.address = address;
         this.phoneNumber = phoneNumber;
     }
-    public School(Integer id) {
+
+    public School(int id) {
         this.id = id;
     }
 
-    public Integer getId() {
+    public School(int id, String name){
+        this.id = id;
+        this.name = name;
+    }
+
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 

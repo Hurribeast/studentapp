@@ -1,19 +1,15 @@
 package be.leeroy.studentapp.dataaccess.dto;
 
-import be.leeroy.studentapp.models.School;
+import com.squareup.moshi.Json;
 
 public class OptionDTO {
-    private School school;
+
     private String name;
-    private Integer nbyears;
+    @Json(name = "nbyears")
+    private int nbYears;
 
-    public School getSchool() {
-        return school;
-    }
-
-    public void setSchool(School school) {
-        this.school = school;
-    }
+    @Json(name = "school")
+    private int schoolId;
 
     public String getName() {
         return name;
@@ -23,11 +19,19 @@ public class OptionDTO {
         this.name = name;
     }
 
-    public Integer getNbyears() {
-        return nbyears;
+    public int getNbYears() {
+        return nbYears;
     }
 
-    public void setNbyears(Integer nbyears) {
-        this.nbyears = nbyears;
+    public void setNbYears(int nbYears) {
+        this.nbYears = nbYears;
+    }
+
+    public int getSchoolId() {
+        return schoolId;
+    }
+
+    public void setSchoolId(int schoolId) {
+        this.schoolId = schoolId;
     }
 }

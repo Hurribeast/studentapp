@@ -40,13 +40,12 @@ public class RegisterViewModel extends AndroidViewModel {
 
     public RegisterViewModel(@NonNull Application application) {
         super(application);
+
         this.schoolDataAccess = RetrofitConfigurationService.getInstance(application).schoolDataAccess();
-
-
     }
 
     public void registerUser() {
-
+        // TODO register user
     }
 
     public void loadSchools() {
@@ -55,11 +54,12 @@ public class RegisterViewModel extends AndroidViewModel {
             public void onResponse(@NotNull Call<SchoolDTO[]> call, @NonNull Response<SchoolDTO[]> response) {
                 if(response.isSuccessful()) {
                     SchoolDTO [] schoolsDTO = response.body();
-                    int length = schoolsDTO.length;
+
                     ArrayList<School> schools = new ArrayList<>();
-                    for(int i = 0; i < length; i++) {
-                        schools.add(SchoolMapper.getInstance().mapToSchool(schoolsDTO[i]));
+                    for(SchoolDTO schoolDTO : schoolsDTO) {
+                        schools.add(SchoolMapper.getInstance().mapToSchool(schoolDTO));
                     }
+
                     _schools.setValue(schools);
                     _error.setValue(null);
                 } else {
@@ -80,7 +80,7 @@ public class RegisterViewModel extends AndroidViewModel {
 
     public void loadOptions(int schoolID) {
         HashMap<String, Object> bodyParams = new HashMap<>();
-        bodyParams.put("schoolID", schoolID);
+        bodyParams.put("schoolId", schoolID);
 
         RequestBody requestBody = ApiUtils.ToRequestBody(bodyParams);
 
@@ -89,11 +89,12 @@ public class RegisterViewModel extends AndroidViewModel {
             public void onResponse(@NotNull Call<OptionDTO[]> call, @NotNull Response<OptionDTO[]> response) {
                 if(response.isSuccessful()) {
                     OptionDTO [] optionsDTO = response.body();
-                    int length = optionsDTO.length;
+
                     ArrayList<Option> options = new ArrayList<>();
-                    for(int i = 0; i < length; i++) {
-                        options.add(SchoolMapper.getInstance().mapToOption(optionsDTO[i]));
+                    for(OptionDTO optionDTO : optionsDTO){
+                        options.add(SchoolMapper.getInstance().mapToOption(optionDTO));
                     }
+
                     _options.setValue(options);
                     _error.setValue(null);
                 } else {
@@ -115,7 +116,12 @@ public class RegisterViewModel extends AndroidViewModel {
     public LiveData<ArrayList<School>> getSchools() {
         return this.schools;
     }
+
     public LiveData<ArrayList<Option>> getOptions() {
         return this.options;
+    }
+
+    public LiveData<Errors> getError() {
+        return error;
     }
 }

@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.ViewModelProvider;
 
 import be.leeroy.studentapp.R;
+import be.leeroy.studentapp.dataaccess.mappers.SchoolMapper;
 import be.leeroy.studentapp.databinding.FragmentRegisterBinding;
 import be.leeroy.studentapp.models.Option;
 import be.leeroy.studentapp.models.School;
@@ -39,32 +40,47 @@ public class RegisterFragment extends ExtendFragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentRegisterBinding.inflate(inflater, container, false);
         viewModel = new ViewModelProvider(this).get(RegisterViewModel.class);
+
         schoolsSpinner = binding.registerSchoolSpinner;
         optionsSpinner = binding.registerOptionSpinner;
 
         viewModel.getSchools().observe(getViewLifecycleOwner(), schools -> {
+            School emptySchool = new School(0, "<Choose a school>");
+            schools.add(0, emptySchool);
+
             ArrayAdapter<School> schoolsAdapter = new ArrayAdapter<>(this.getContext(), android.R.layout.simple_spinner_item, schools);
             schoolsAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             schoolsSpinner.setAdapter(schoolsAdapter);
-            viewModel.loadOptions(getSelectedItem(this.getView()).getId());
         });
 
         viewModel.getOptions().observe(getViewLifecycleOwner(), options -> {
+            Option emptyOption = new Option("<Choose an option>");
+            options.add(0, emptyOption);
+
             ArrayAdapter<Option> optionsAdapter = new ArrayAdapter<>(this.getContext(), android.R.layout.simple_spinner_item, options);
             optionsAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             optionsSpinner.setAdapter(optionsAdapter);
+
+            binding.registerOptionSpinner.setEnabled(true);
         });
+
+        viewModel.getError().observe(getViewLifecycleOwner(), this::displayError);
 
         binding.registerSchoolSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-
-                //viewModel.loadOptions(schoolSelected.getId());
+                School school = (School) adapterView.getSelectedItem();
+                if (school.getId() != 0) {
+                    viewModel.loadOptions(school.getId());
+                } else {
+                    binding.registerOptionSpinner.setAdapter(null);
+                    binding.registerOptionSpinner.setEnabled(false);
+                }
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-
+                binding.registerOptionSpinner.setEnabled(false);
             }
         });
 

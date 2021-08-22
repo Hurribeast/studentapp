@@ -19,6 +19,6 @@ public class SchoolMapper {
     }
 
     public Option mapToOption(OptionDTO dto) {
-        return new Option(new School(dto.getSchool().getId()), dto.getName(), dto.getNbyears());
+        return new Option(new School(dto.getSchoolId()), dto.getName(), dto.getNbYears());
     }
 }
