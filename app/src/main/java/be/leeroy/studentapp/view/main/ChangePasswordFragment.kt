@@ -1,4 +1,4 @@
-package be.leeroy.studentapp.view
+package be.leeroy.studentapp.view.main
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,10 +9,11 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import be.leeroy.studentapp.R
 import be.leeroy.studentapp.databinding.FragmentChangePasswordBinding
-import be.leeroy.studentapp.utils.PreferencesUtils
+import be.leeroy.studentapp.view.ExtendFragment
 import be.leeroy.studentapp.viewmodel.ChangePasswordViewModel
 
 class ChangePasswordFragment : ExtendFragment() {
+
     private lateinit var viewModel: ChangePasswordViewModel
     private lateinit var binding: FragmentChangePasswordBinding
 
@@ -27,12 +28,11 @@ class ChangePasswordFragment : ExtendFragment() {
         }
 
         viewModel.changed.observe(viewLifecycleOwner, Observer {
-            if(viewModel.changed.value == true) {
+            if(it == true) {
                 Toast.makeText(context, R.string.password_changed, Toast.LENGTH_SHORT).show()
             } else {
                 Toast.makeText(context, R.string.not_actual_password, Toast.LENGTH_SHORT).show()
             }
-
         })
         return root
     }

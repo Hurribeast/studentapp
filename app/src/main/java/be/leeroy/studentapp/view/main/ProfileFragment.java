@@ -22,7 +22,6 @@ public class ProfileFragment extends ExtendFragment {
     private FragmentProfileBinding binding;
     private ProfileViewModel viewModel;
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentProfileBinding.inflate(inflater, container, false);

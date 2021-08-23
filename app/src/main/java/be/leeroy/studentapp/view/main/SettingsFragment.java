@@ -20,12 +20,10 @@ public class SettingsFragment extends ExtendFragment {
 
     public SettingsFragment() {}
 
-    private FragmentSettingsBinding binding;
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        binding = FragmentSettingsBinding.inflate(inflater, container, false);
+        FragmentSettingsBinding binding = FragmentSettingsBinding.inflate(inflater, container, false);
 
         binding.settingsBackButton.setOnClickListener(view -> navigateToBackFragment());
 

@@ -2,6 +2,7 @@ package be.leeroy.studentapp.view;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
@@ -33,8 +34,13 @@ public class ExtendFragment extends Fragment {
     }
 
     public void navigateToFragment(View view, @IdRes int resId){
-        Navigation.findNavController(view).navigate(resId);
+        this.navigateToFragment(view, resId, null);
     }
+
+    public void navigateToFragment(View view, @IdRes int resId, Bundle bundle){
+        Navigation.findNavController(view).navigate(resId, bundle);
+    }
+
 
     public void navigateToBackFragment(){
         getActivity().onBackPressed();

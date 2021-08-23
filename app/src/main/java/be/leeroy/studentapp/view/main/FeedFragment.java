@@ -20,8 +20,7 @@ import be.leeroy.studentapp.viewmodel.FeedViewModel;
 
 public class FeedFragment extends ExtendFragment {
 
-    public FeedFragment() {
-    }
+    public FeedFragment() {}
 
     private FragmentFeedBinding binding;
     private FeedViewModel viewModel;
@@ -41,6 +40,13 @@ public class FeedFragment extends ExtendFragment {
         /* Create publication */
         binding.feedCreatePublicationButton.setOnClickListener(view -> {
             navigateToFragment(view, R.id.feedFragment_to_newPublicationFragment);
+        });
+
+        /* My profile button */
+        binding.feedProfileButton.setOnClickListener(view -> {
+            Bundle bundle = new Bundle();
+            bundle.putString("user", PreferencesUtils.get("userEmail", requireActivity()));
+            navigateToFragment(view, R.id.feedFragment_to_profileFragment, bundle);
         });
 
         /* Erreurs */
