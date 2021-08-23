@@ -6,6 +6,7 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
+import retrofit2.http.PATCH;
 import retrofit2.http.POST;
 
 public interface UserDataAccess {
@@ -18,4 +19,7 @@ public interface UserDataAccess {
 
     @POST("user")
     Call<String> registerUser(@Body RequestBody body);
+
+    @PATCH("user/password")
+    Call<RequestBody> changePassword(@Header("Authorization") String token, @Body RequestBody body);
 }

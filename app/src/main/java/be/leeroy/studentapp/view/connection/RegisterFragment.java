@@ -7,9 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.DatePicker;
 import android.widget.Spinner;
-import android.widget.SpinnerAdapter;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.ViewModelProvider;
@@ -21,7 +19,6 @@ import java.util.Date;
 import java.util.Locale;
 
 import be.leeroy.studentapp.R;
-import be.leeroy.studentapp.dataaccess.mappers.SchoolMapper;
 import be.leeroy.studentapp.databinding.FragmentRegisterBinding;
 import be.leeroy.studentapp.models.Option;
 import be.leeroy.studentapp.models.School;
@@ -29,7 +26,6 @@ import be.leeroy.studentapp.models.errors.Errors;
 import be.leeroy.studentapp.utils.PreferencesUtils;
 import be.leeroy.studentapp.utils.RegexValidation;
 import be.leeroy.studentapp.view.ExtendFragment;
-import be.leeroy.studentapp.view.main.FeedFragment;
 import be.leeroy.studentapp.view.main.MainActivity;
 import be.leeroy.studentapp.viewmodel.RegisterViewModel;
 
@@ -144,8 +140,9 @@ public class RegisterFragment extends ExtendFragment {
             Integer bloc = Integer.parseInt(binding.registerBlocInput.getText().toString());
             String optionname = ((Option) binding.registerOptionSpinner.getSelectedItem()).getName();
             Integer optionschool = ((School) binding.registerSchoolSpinner.getSelectedItem()).getId();
+            String passwordToConfirm = binding.registerConfirmPasswordInput.getText().toString();
 
-            if(validForm()) {
+            if(validForm(email, password, passwordToConfirm, lastname, firstname, birthday, optionname, optionschool, bloc)) {
                 viewModel.registerUser(email, password, lastname, firstname, birthday, optionname, optionschool, bloc);
             }
         });
@@ -159,13 +156,8 @@ public class RegisterFragment extends ExtendFragment {
         viewModel.loadSchools();
     }
 
-    private Boolean validForm() {
-        Boolean isValid = true;
-        String email = binding.registerEmailInput.getText().toString();
-        String password = binding.registerPasswordInput.getText().toString();
-        String confirmationPassword = binding.registerConfirmPasswordInput.getText().toString();
-        String birthday = binding.registerBirthdayInput.getText().toString();
-
+    private boolean validForm(String email, String password, String confirmationPassword, String last_name, String first_name, Date birthday, String option_name, Integer option_school, Integer bloc) {
+        boolean isValid = true;
         if(email.equals("")) {
             binding.registerEmailInput.setError(getString(R.string.error_empty_email));
             isValid = false;
@@ -188,6 +180,10 @@ public class RegisterFragment extends ExtendFragment {
             } else {
                 binding.registerPasswordInput.setError(null);
             }
+        }
+
+        if(last_name.equals("") || first_name.equals("") || option_name.equals("") || option_school == null || bloc == null) {
+            isValid = false;
         }
 
         return isValid;

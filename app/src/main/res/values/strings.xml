@@ -4,7 +4,7 @@
     <!-- Strings used for fragments for navigation -->
     <string name="next">Next</string>
     <string name="previous">Previous</string>
-
+    <string name="change_password">Change password</string>
     <string name="email_exist">Email already exist</string>
     <string name="login">Login</string>
     <string name="content_not_found">Content not found</string>
@@ -27,6 +27,8 @@
     <string name="error_email_format">Unvalid email</string>
     <string name="error_empty_password">Empty password field</string>
     <string name="error_password_no_match">Passwords does not match each other</string>
+    <string name="not_actual_password">Wrong old password</string>
+    <string name="password_changed">Password changed successfully !</string>
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
@@ -38,4 +40,6 @@
     <string name="invalid_password">Password isn\'t correct !</string>
     <string name="login_failed">"Login failed"</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="old_password">Old password : </string>
+    <string name="changing_same_password">You are trying to change your password for the same one</string>
 </resources>
