@@ -195,7 +195,7 @@
         android:layout_marginTop="14dp"
         android:layout_marginEnd="23dp"
         android:ems="10"
-        android:inputType="date"
+        android:focusable="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/register_birthday_label"
         app:layout_constraintTop_toBottomOf="@+id/register_firstname_input" />

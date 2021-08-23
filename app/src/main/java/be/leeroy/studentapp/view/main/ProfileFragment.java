@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 
 import androidx.lifecycle.ViewModelProvider;
 
+import be.leeroy.studentapp.R;
 import be.leeroy.studentapp.databinding.FragmentProfileBinding;
 import be.leeroy.studentapp.utils.PreferencesUtils;
 import be.leeroy.studentapp.view.ExtendFragment;
@@ -33,6 +34,9 @@ public class ProfileFragment extends ExtendFragment {
 
         /* Back button */
         binding.profileBackButton.setOnClickListener(view -> navigateToBackFragment());
+
+        /* Settings button */
+        binding.profileSettingsButton.setOnClickListener(view -> navigateToFragment(view, R.id.profileFragment_to_settingsFragment));
 
         /* Load all information */
         viewModel.getUser().observe(getViewLifecycleOwner(), user -> {

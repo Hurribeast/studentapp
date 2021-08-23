@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import be.leeroy.studentapp.R;
 import be.leeroy.studentapp.databinding.FragmentFeedBinding;
+import be.leeroy.studentapp.models.errors.Errors;
 import be.leeroy.studentapp.utils.PreferencesUtils;
 import be.leeroy.studentapp.view.ExtendFragment;
 import be.leeroy.studentapp.view.main.publication.PublicationAdapter;

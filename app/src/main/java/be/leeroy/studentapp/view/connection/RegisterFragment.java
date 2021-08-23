@@ -1,11 +1,13 @@
 package be.leeroy.studentapp.view.connection;
 
+import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.DatePicker;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
 
@@ -13,7 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.ViewModelProvider;
 
 import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.Calendar;
 import java.util.Locale;
 
 import be.leeroy.studentapp.R;
@@ -104,6 +106,21 @@ public class RegisterFragment extends ExtendFragment {
             public void onNothingSelected(AdapterView<?> adapterView) {
                 binding.registerOptionSpinner.setEnabled(false);
             }
+        });
+
+        /* Birthday picker */
+        binding.registerBirthdayInput.setOnClickListener(view -> {
+            Calendar calendar = Calendar.getInstance();
+            DatePickerDialog picker = new DatePickerDialog(getActivity(), (datePicker, year, month, day) -> {
+                Calendar pickerDate = Calendar.getInstance();
+                pickerDate.set(year, month, day);
+
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("d MMMM yyyy", Locale.FRENCH);
+                String formattedDate = simpleDateFormat.format(pickerDate.getTime());
+
+                binding.registerBirthdayInput.setText(formattedDate);
+            }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
+            picker.show();
         });
 
         binding.registerBackButton.setOnClickListener(view -> navigateToBackFragment());
