@@ -7,9 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.DatePicker;
 import android.widget.Spinner;
-import android.widget.SpinnerAdapter;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.ViewModelProvider;
@@ -21,7 +19,6 @@ import java.util.Date;
 import java.util.Locale;
 
 import be.leeroy.studentapp.R;
-import be.leeroy.studentapp.dataaccess.mappers.SchoolMapper;
 import be.leeroy.studentapp.databinding.FragmentRegisterBinding;
 import be.leeroy.studentapp.models.Option;
 import be.leeroy.studentapp.models.School;
@@ -29,24 +26,17 @@ import be.leeroy.studentapp.models.errors.Errors;
 import be.leeroy.studentapp.utils.PreferencesUtils;
 import be.leeroy.studentapp.utils.RegexValidation;
 import be.leeroy.studentapp.view.ExtendFragment;
-import be.leeroy.studentapp.view.main.FeedFragment;
 import be.leeroy.studentapp.view.main.MainActivity;
 import be.leeroy.studentapp.viewmodel.RegisterViewModel;
 
 public class RegisterFragment extends ExtendFragment {
 
+    public RegisterFragment() {}
+
     private FragmentRegisterBinding binding;
     private RegisterViewModel viewModel;
     private Spinner schoolsSpinner;
     private Spinner optionsSpinner;
-
-    public RegisterFragment() {
-
-    }
-
-    //TODO
-    // Fix le problème de l'affichage des options
-    // Ajouter la feature d'inscription
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -66,8 +56,8 @@ public class RegisterFragment extends ExtendFragment {
         });
 
         viewModel.getToken().observe(getViewLifecycleOwner(), token -> {
-            PreferencesUtils.set("token", token, getActivity());
-            PreferencesUtils.set("userEmail", token, getActivity());
+            PreferencesUtils.set("token", token, requireActivity());
+            PreferencesUtils.set("userEmail", token, requireActivity());
             navigateToActivity(MainActivity.class);
         });
 
@@ -132,6 +122,7 @@ public class RegisterFragment extends ExtendFragment {
             String password = binding.registerPasswordInput.getText().toString();
             String lastname = binding.registerLastnameInput.getText().toString();
             String firstname = binding.registerFirstnameInput.getText().toString();
+
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("d MMMM yyyy", Locale.FRENCH);
             Date birthday = null;
 
@@ -142,11 +133,11 @@ public class RegisterFragment extends ExtendFragment {
             }
 
             Integer bloc = Integer.parseInt(binding.registerBlocInput.getText().toString());
-            String optionname = ((Option) binding.registerOptionSpinner.getSelectedItem()).getName();
-            Integer optionschool = ((School) binding.registerSchoolSpinner.getSelectedItem()).getId();
+            String optionName = ((Option) binding.registerOptionSpinner.getSelectedItem()).getName();
+            Integer optionSchool = ((School) binding.registerSchoolSpinner.getSelectedItem()).getId();
 
             if(validForm()) {
-                viewModel.registerUser(email, password, lastname, firstname, birthday, optionname, optionschool, bloc);
+                viewModel.registerUser(email, password, lastname, firstname, birthday, optionName, optionSchool, bloc);
             }
         });
 
@@ -160,7 +151,8 @@ public class RegisterFragment extends ExtendFragment {
     }
 
     private Boolean validForm() {
-        Boolean isValid = true;
+        boolean isValid = true;
+
         String email = binding.registerEmailInput.getText().toString();
         String password = binding.registerPasswordInput.getText().toString();
         String confirmationPassword = binding.registerConfirmPasswordInput.getText().toString();
@@ -191,9 +183,5 @@ public class RegisterFragment extends ExtendFragment {
         }
 
         return isValid;
-    }
-
-    public School getSelectedItem(View v) {
-        return (School) schoolsSpinner.getSelectedItem();
     }
 }
