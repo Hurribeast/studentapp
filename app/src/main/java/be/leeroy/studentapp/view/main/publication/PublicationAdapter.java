@@ -38,6 +38,8 @@ public class PublicationAdapter extends RecyclerView.Adapter<PublicationViewHold
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MMM-yyyy", Locale.FRENCH);
         String date = dateFormat.format(publication.getDate().getTime());
 
+        holder.setPublication(publication);
+
         holder.content.setText(publication.getContent());
         holder.author.setText(author);
         holder.date.setText(date);

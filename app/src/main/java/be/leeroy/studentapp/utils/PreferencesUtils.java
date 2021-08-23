@@ -6,25 +6,28 @@ import android.content.SharedPreferences;
 
 public class PreferencesUtils {
 
-    public static String getToken(Activity activity) {
-        SharedPreferences preferences = activity.getSharedPreferences("login", Context.MODE_PRIVATE);
-        return preferences != null ? preferences.getString("token", null) : null;
+    private static SharedPreferences preferences;
+    private static SharedPreferences.Editor editor;
+
+    public static String get(String key, Activity activity) {
+        preferences = activity.getSharedPreferences("student", Context.MODE_PRIVATE);
+        return preferences != null ? preferences.getString(key, null) : null;
     }
 
-    public static void setToken(String token, Activity activity) {
-        SharedPreferences preferences = activity.getSharedPreferences("login", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = preferences.edit();
+    public static void set(String key, String value, Activity activity) {
+        preferences = activity.getSharedPreferences("student", Context.MODE_PRIVATE);
 
-        editor.putString("token", token);
+        editor = preferences.edit();
+        editor.putString(key, value);
 
         editor.apply();
     }
 
-    public static void removeToken(Activity activity) {
-        SharedPreferences preferences = activity.getSharedPreferences("login", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = preferences.edit();
+    public static void remove(String key, Activity activity) {
+        preferences = activity.getSharedPreferences("student", Context.MODE_PRIVATE);
 
-        editor.remove("token");
+        editor = preferences.edit();
+        editor.remove(key);
 
         editor.apply();
     }

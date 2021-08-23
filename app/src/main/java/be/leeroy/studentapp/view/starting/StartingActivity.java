@@ -26,7 +26,7 @@ public class StartingActivity extends ExtendActivity {
     }
 
     private void checkSession() {
-        String token = PreferencesUtils.getToken(this);
+        String token = PreferencesUtils.get("token", this);
         if (token != null) {
             JWT jwtToken = new JWT(token);
 

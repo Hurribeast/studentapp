@@ -84,8 +84,6 @@ public class RegisterFragment extends ExtendFragment {
             }
         });
 
-
-
         binding.registerBackButton.setOnClickListener(view -> navigateToBackFragment());
         binding.registerButton.setOnClickListener(view -> {
             if(validForm()) {
@@ -103,6 +101,9 @@ public class RegisterFragment extends ExtendFragment {
     }
 
     private Boolean validForm() {
+        /* TODO
+         * add error message when email already exist
+         */
         Boolean isValid = true;
         String email = binding.registerEmailInput.getText().toString();
         String password = binding.registerPasswordInput.getText().toString();

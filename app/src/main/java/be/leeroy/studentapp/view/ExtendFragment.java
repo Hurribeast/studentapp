@@ -48,7 +48,7 @@ public class ExtendFragment extends Fragment {
     }
 
     public String getBearerAuth(){
-        return "Bearer " + PreferencesUtils.getToken(getActivity());
+        return "Bearer " + PreferencesUtils.get("token", getActivity());
     }
 
 }
