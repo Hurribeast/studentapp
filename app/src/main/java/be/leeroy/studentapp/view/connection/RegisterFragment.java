@@ -31,18 +31,12 @@ import be.leeroy.studentapp.viewmodel.RegisterViewModel;
 
 public class RegisterFragment extends ExtendFragment {
 
+    public RegisterFragment() {}
+
     private FragmentRegisterBinding binding;
     private RegisterViewModel viewModel;
     private Spinner schoolsSpinner;
     private Spinner optionsSpinner;
-
-    public RegisterFragment() {
-
-    }
-
-    //TODO
-    // Fix le problème de l'affichage des options
-    // Ajouter la feature d'inscription
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -62,8 +56,8 @@ public class RegisterFragment extends ExtendFragment {
         });
 
         viewModel.getToken().observe(getViewLifecycleOwner(), token -> {
-            PreferencesUtils.set("token", token, getActivity());
-            PreferencesUtils.set("userEmail", token, getActivity());
+            PreferencesUtils.set("token", token, requireActivity());
+            PreferencesUtils.set("userEmail", token, requireActivity());
             navigateToActivity(MainActivity.class);
         });
 
@@ -128,6 +122,7 @@ public class RegisterFragment extends ExtendFragment {
             String password = binding.registerPasswordInput.getText().toString();
             String lastname = binding.registerLastnameInput.getText().toString();
             String firstname = binding.registerFirstnameInput.getText().toString();
+
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("d MMMM yyyy", Locale.FRENCH);
             Date birthday = null;
 
@@ -187,9 +182,5 @@ public class RegisterFragment extends ExtendFragment {
         }
 
         return isValid;
-    }
-
-    public School getSelectedItem(View v) {
-        return (School) schoolsSpinner.getSelectedItem();
     }
 }
