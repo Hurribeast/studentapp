@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import be.leeroy.studentapp.R;
 import be.leeroy.studentapp.databinding.FragmentFeedBinding;
@@ -32,7 +33,10 @@ public class FeedFragment extends ExtendFragment {
 
         /* List Publications */
         PublicationAdapter publicationAdapter = new PublicationAdapter();
-        viewModel.getPublications().observe(getViewLifecycleOwner(), publicationAdapter::setPublications);
+        viewModel.getPublications().observe(getViewLifecycleOwner(), publications -> {
+            publicationAdapter.setPublications(publications);
+            binding.feedRefreshLayout.setRefreshing(false);
+        });
         RecyclerView publicationsRv = binding.feedPublicationsRv;
         publicationsRv.setLayoutManager(new LinearLayoutManager(this.getActivity()));
         publicationsRv.setAdapter(publicationAdapter);
@@ -47,6 +51,11 @@ public class FeedFragment extends ExtendFragment {
             Bundle bundle = new Bundle();
             bundle.putString("user", PreferencesUtils.get("userEmail", requireActivity()));
             navigateToFragment(view, R.id.feedFragment_to_profileFragment, bundle);
+        });
+
+        /* Refresh publications */
+        binding.feedRefreshLayout.setOnRefreshListener(() -> {
+            viewModel.loadPublications(getBearerAuth());
         });
 
         /* Erreurs */

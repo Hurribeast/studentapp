@@ -57,7 +57,7 @@ public class RegisterFragment extends ExtendFragment {
 
         viewModel.getToken().observe(getViewLifecycleOwner(), token -> {
             PreferencesUtils.set("token", token, requireActivity());
-            PreferencesUtils.set("userEmail", token, requireActivity());
+            PreferencesUtils.set("userEmail", binding.registerEmailInput.getText().toString(), requireActivity());
             navigateToActivity(MainActivity.class);
         });
 

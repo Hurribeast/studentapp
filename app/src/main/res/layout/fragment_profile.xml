@@ -10,18 +10,21 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal">
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:elevation="4dp">
 
         <ImageView
             android:id="@+id/profile_back_button"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
+            android:src="@drawable/ic_back_dark"
             android:contentDescription="@string/back"
-            android:src="@drawable/ic_back_dark"/>
+            android:textColor="#000"
+            android:textStyle="bold"
+            android:textSize="30sp"
+            android:layout_gravity="center"/>
 
         <View
             android:layout_width="0dp"
@@ -40,6 +43,11 @@
 
     </LinearLayout>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorPrimary"/>
+
     <LinearLayout
         android:id="@+id/profile_page"
         android:layout_width="match_parent"
@@ -50,6 +58,7 @@
         <com.google.android.material.imageview.ShapeableImageView
             android:layout_width="140dp"
             android:layout_height="140dp"
+            android:layout_marginTop="10dp"
             android:src="@drawable/avatar"
             android:layout_gravity="center"
             app:shapeAppearanceOverlay="@style/roundedImageViewRounded" />

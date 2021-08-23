@@ -58,7 +58,7 @@ public class NewPublicationFragment extends ExtendFragment {
         });
 
         viewModel.isPublished().observe(getViewLifecycleOwner(), published -> {
-            navigateToFragment(binding.getRoot(), R.id.newPublicationFragment_to_feedFragment);
+            navigateToBackFragment();
         });
         viewModel.getError().observe(getViewLifecycleOwner(), this::displayError);
 

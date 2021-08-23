@@ -35,7 +35,7 @@ public class PublicationAdapter extends RecyclerView.Adapter<PublicationViewHold
         String author = publication.getUser().getFirstname() + " " + publication.getUser().getLastname();
         String nbComments = publication.getNbComments() + " comments";
 
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MMM-yyyy", Locale.FRENCH);
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM yyyy", Locale.FRENCH);
         String date = dateFormat.format(publication.getDate().getTime());
 
         holder.setPublication(publication);

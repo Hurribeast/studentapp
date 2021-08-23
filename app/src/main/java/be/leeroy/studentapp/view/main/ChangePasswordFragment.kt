@@ -33,7 +33,7 @@ class ChangePasswordFragment : ExtendFragment() {
         viewModel.changed.observe(viewLifecycleOwner, {
             Toast.makeText(context, R.string.password_changed, Toast.LENGTH_SHORT).show()
             hideKeyboard(binding.root)
-            navigateToFragment(binding.root, R.id.changePasswordFragment_to_feedFragment)
+            navigateToBackFragment();
         })
 
         viewModel.error.observe(viewLifecycleOwner, {
