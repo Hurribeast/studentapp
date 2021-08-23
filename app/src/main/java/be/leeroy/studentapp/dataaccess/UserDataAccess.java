@@ -16,4 +16,6 @@ public interface UserDataAccess {
     @POST("user/profile")
     Call<UserDTO> getUser(@Header("Authorization") String token, @Body RequestBody body);
 
+    @POST("user")
+    Call<String> registerUser(@Body RequestBody body);
 }

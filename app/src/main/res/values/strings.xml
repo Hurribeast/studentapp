@@ -5,6 +5,7 @@
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 
+    <string name="email_exist">Email already exist</string>
     <string name="login">Login</string>
     <string name="content_not_found">Content not found</string>
     <string name="http_no_connection">Check your internet connection</string>
