@@ -68,7 +68,7 @@ public class RegisterViewModel extends AndroidViewModel {
 
         userDataAccess.registerUser(requestBody).enqueue(new Callback<String>() {
             @Override
-            public void onResponse(Call<String> call, Response<String> response) {
+            public void onResponse(@NotNull Call<String> call, @NotNull Response<String> response) {
                 if(response.isSuccessful()) {
                     _token.setValue(response.body());
                     _error.setValue(null);
@@ -82,7 +82,7 @@ public class RegisterViewModel extends AndroidViewModel {
             }
 
             @Override
-            public void onFailure(Call<String> call, Throwable t) {
+            public void onFailure(@NotNull Call<String> call, @NotNull Throwable t) {
                 if(t instanceof NoConnectivityException) {
                     _error.setValue(Errors.NO_CONNECTION);
                 } else {

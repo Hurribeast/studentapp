@@ -14,8 +14,10 @@ import android.widget.SpinnerAdapter;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.ViewModelProvider;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Locale;
 
 import be.leeroy.studentapp.R;
@@ -54,14 +56,6 @@ public class RegisterFragment extends ExtendFragment {
         schoolsSpinner = binding.registerSchoolSpinner;
         optionsSpinner = binding.registerOptionSpinner;
 
-        viewModel.getError().observe(getViewLifecycleOwner(), error -> {
-           if(error == Errors.EMAIL_EXIST) {
-               binding.registerEmailInput.setError(error.getMessage());
-           } else {
-               displayError(error);
-           }
-        });
-
         viewModel.getSchools().observe(getViewLifecycleOwner(), schools -> {
             School emptySchool = new School(0, "<Choose a school>");
             schools.add(0, emptySchool);
@@ -73,7 +67,7 @@ public class RegisterFragment extends ExtendFragment {
 
         viewModel.getToken().observe(getViewLifecycleOwner(), token -> {
             PreferencesUtils.set("token", token, getActivity());
-            PreferencesUtils.set("email", token, getActivity());
+            PreferencesUtils.set("userEmail", token, getActivity());
             navigateToActivity(MainActivity.class);
         });
 
@@ -88,7 +82,13 @@ public class RegisterFragment extends ExtendFragment {
             binding.registerOptionSpinner.setEnabled(true);
         });
 
-        viewModel.getError().observe(getViewLifecycleOwner(), this::displayError);
+        viewModel.getError().observe(getViewLifecycleOwner(), error -> {
+            if(error == Errors.EMAIL_EXIST) {
+                binding.registerEmailInput.setError(error.getMessage());
+            } else {
+                displayError(error);
+            }
+        });
 
         binding.registerSchoolSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -123,19 +123,29 @@ public class RegisterFragment extends ExtendFragment {
             picker.show();
         });
 
+        /* Back button */
         binding.registerBackButton.setOnClickListener(view -> navigateToBackFragment());
+
+        /* Register button */
         binding.registerButton.setOnClickListener(view -> {
             String email = binding.registerEmailInput.getText().toString();
             String password = binding.registerPasswordInput.getText().toString();
             String lastname = binding.registerLastnameInput.getText().toString();
             String firstname = binding.registerFirstnameInput.getText().toString();
-            Date birthday = new SimpleDateFormat("dd-MM-yyyy", Locale.FRENCH).parse(binding.registerBirthdayInput.getText().toString());
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("d MMMM yyyy", Locale.FRENCH);
+            Date birthday = null;
+
+            try {
+                birthday = simpleDateFormat.parse(binding.registerBirthdayInput.getText().toString());
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+
             Integer bloc = Integer.parseInt(binding.registerBlocInput.getText().toString());
             String optionname = ((Option) binding.registerOptionSpinner.getSelectedItem()).getName();
             Integer optionschool = ((School) binding.registerSchoolSpinner.getSelectedItem()).getId();
 
             if(validForm()) {
-                // Le code pour l'inscription vient içi
                 viewModel.registerUser(email, password, lastname, firstname, birthday, optionname, optionschool, bloc);
             }
         });
