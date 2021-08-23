@@ -2,6 +2,7 @@ package be.leeroy.studentapp.dataaccess;
 
 import be.leeroy.studentapp.dataaccess.dto.UserDTO;
 import okhttp3.RequestBody;
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
@@ -21,5 +22,5 @@ public interface UserDataAccess {
     Call<String> registerUser(@Body RequestBody body);
 
     @PATCH("user/password")
-    Call<RequestBody> changePassword(@Header("Authorization") String token, @Body RequestBody body);
+    Call<ResponseBody> changePassword(@Header("Authorization") String token, @Body RequestBody body);
 }
