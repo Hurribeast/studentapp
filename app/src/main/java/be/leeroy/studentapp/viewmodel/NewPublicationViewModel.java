@@ -12,7 +12,6 @@ import org.jetbrains.annotations.NotNull;
 import java.util.HashMap;
 
 import be.leeroy.studentapp.dataaccess.PublicationDataAccess;
-import be.leeroy.studentapp.dataaccess.dto.PublicationDTO;
 import be.leeroy.studentapp.exceptions.NoConnectivityException;
 import be.leeroy.studentapp.models.errors.Errors;
 import be.leeroy.studentapp.services.RetrofitConfigurationService;

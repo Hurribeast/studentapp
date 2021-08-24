@@ -9,7 +9,6 @@ import android.widget.Toast;
 
 import androidx.annotation.IdRes;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.navigation.Navigation;
 
 import be.leeroy.studentapp.R;
@@ -30,7 +29,7 @@ public class ExtendFragment extends Fragment {
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
 
-        getActivity().overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+        requireActivity().overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
     }
 
     public void navigateToFragment(View view, @IdRes int resId){
@@ -43,18 +42,18 @@ public class ExtendFragment extends Fragment {
 
 
     public void navigateToBackFragment(){
-        getActivity().onBackPressed();
+        requireActivity().onBackPressed();
     }
 
     public void hideKeyboard(View view){
         if (view != null) {
-            InputMethodManager imm = (InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+            InputMethodManager imm = (InputMethodManager)requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
             imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
         }
     }
 
     public String getBearerAuth(){
-        return "Bearer " + PreferencesUtils.get("token", getActivity());
+        return "Bearer " + PreferencesUtils.get("token", requireActivity());
     }
 
 }

@@ -2,6 +2,12 @@
     <string name="app_name">Student</string>
     <string name="action_settings">Settings</string>
     <!-- Strings used for fragments for navigation -->
+    <string name="zero_sur_cent">0/100</string>
+    <string name="comment">Comment</string>
+    <string name="change_school">Change school</string>
+    <string name="publish">PUBLISH</string>
+    <string name="disconnect">Disconnect</string>
+    <string name="create_publication">Create a publication </string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
     <string name="change_password">Change password</string>

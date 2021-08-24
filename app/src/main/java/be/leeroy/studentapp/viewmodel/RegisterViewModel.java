@@ -9,7 +9,6 @@ import androidx.lifecycle.MutableLiveData;
 
 import org.jetbrains.annotations.NotNull;
 
-import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -24,7 +23,6 @@ import be.leeroy.studentapp.models.School;
 import be.leeroy.studentapp.models.errors.Errors;
 import be.leeroy.studentapp.services.RetrofitConfigurationService;
 import be.leeroy.studentapp.utils.ApiUtils;
-import be.leeroy.studentapp.utils.PreferencesUtils;
 import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -41,7 +39,7 @@ public class RegisterViewModel extends AndroidViewModel {
     private final LiveData<Errors> error = _error;
 
     private final MutableLiveData<String> _token = new MutableLiveData<>();
-    private LiveData<String> token = _token;
+    private final LiveData<String> token = _token;
 
     private final SchoolDataAccess schoolDataAccess;
     private final UserDataAccess userDataAccess;

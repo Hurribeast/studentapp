@@ -5,7 +5,6 @@ import android.util.Log;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Locale;
@@ -28,7 +27,7 @@ public class UserMapper {
     public User mapToUser(UserDTO userDTO) {
         if(userDTO == null) return null;
 
-        School school = null;
+        School school;
         Option option = null;
 
         DateFormat df = new SimpleDateFormat("dd-MM-yyyy", Locale.FRENCH);

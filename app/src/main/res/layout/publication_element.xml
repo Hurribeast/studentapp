@@ -88,7 +88,7 @@
             android:layout_height="30dp"
             android:layout_weight="1"
             android:includeFontPadding="false"
-            android:text="Comment"
+            android:text="@string/comment"
             android:textSize="11sp"
             style="?android:attr/buttonBarButtonStyle"/>
 

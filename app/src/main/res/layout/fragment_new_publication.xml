@@ -25,7 +25,7 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Create a publication"
+            android:text="@string/create_publication"
             android:textColor="#000"
             android:textSize="16sp"
             android:layout_weight="1"
@@ -37,7 +37,7 @@
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:layout_marginEnd="20dp"
-            android:text="PUBLISH"
+            android:text="@string/publish"
             android:textColor="#FFF"
             android:textSize="12sp"
             android:background="@drawable/rounded_button"
@@ -57,11 +57,13 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textMultiLine"
-        android:maxLength="100"/>
+        android:maxLength="100"
+        android:autofillHints=""
+        tools:ignore="LabelFor" />
 
     <TextView
         android:id="@+id/newPublication_maxChar_text"
-        android:text="0/100"
+        android:text="@string/zero_sur_cent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@color/colorAccent"

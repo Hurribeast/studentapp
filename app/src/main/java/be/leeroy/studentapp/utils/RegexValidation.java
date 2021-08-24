@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 public class RegexValidation {
 
     public static Boolean email(String email){
-        Pattern emailPattern = Pattern.compile("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$");
+        Pattern emailPattern = Pattern.compile("^[\\w-.]+@([\\w-]+\\.)+[\\w-]{2,4}$");
         Matcher mailMatcher = emailPattern.matcher(email);
         return mailMatcher.matches();
     }

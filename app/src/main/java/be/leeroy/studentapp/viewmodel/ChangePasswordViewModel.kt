@@ -1,12 +1,10 @@
 package be.leeroy.studentapp.viewmodel
 
 import android.app.Application
-import android.widget.Toast
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import be.leeroy.studentapp.dataaccess.UserDataAccess
-import be.leeroy.studentapp.dataaccess.mappers.UserMapper
 import be.leeroy.studentapp.exceptions.NoConnectivityException
 import be.leeroy.studentapp.models.errors.Errors
 import be.leeroy.studentapp.services.RetrofitConfigurationService
@@ -25,7 +23,6 @@ class ChangePasswordViewModel(application: Application) : AndroidViewModel(appli
     private var _changed : MutableLiveData<Boolean> = MutableLiveData<Boolean>()
     val changed : LiveData<Boolean> = _changed
 
-    private var mapper : UserMapper = UserMapper.getInstance()
     private var dataAccess : UserDataAccess = RetrofitConfigurationService.getInstance(application).userDataAccess()
 
     fun changePassword(token: String, password : String, oldPassword : String) {
