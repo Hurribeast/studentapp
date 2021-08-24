@@ -12,7 +12,6 @@ import java.util.List;
 import be.leeroy.studentapp.dataaccess.PublicationDataAccess;
 import be.leeroy.studentapp.dataaccess.mappers.PublicationMapper;
 import be.leeroy.studentapp.models.Comment;
-import be.leeroy.studentapp.models.Publication;
 import be.leeroy.studentapp.models.errors.Errors;
 import be.leeroy.studentapp.services.RetrofitConfigurationService;
 
@@ -32,5 +31,9 @@ public class CommentsViewModel extends AndroidViewModel {
         super(application);
         this.publicationDataAccess = RetrofitConfigurationService.getInstance(application).publicationDataAccess();
         this.publicationMapper = PublicationMapper.getInstance();
+    }
+
+    public List<Comment> getCommentsFromAPublication() {
+        
     }
 }
