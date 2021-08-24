@@ -3,6 +3,7 @@ package be.leeroy.studentapp.view.main.publication;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
@@ -29,12 +30,18 @@ public class PublicationViewHolder extends RecyclerView.ViewHolder {
         date = itemView.findViewById(R.id.publication_date);
         nbComments = itemView.findViewById(R.id.publication_nbComments);
 
-        itemView.findViewById(R.id.publication_comment_button).setOnClickListener(view -> {
+        View.OnClickListener onCommentClick = view -> {
             Bundle bundle = new Bundle();
             bundle.putInt("publiId", publication.getId());
 
             Navigation.findNavController(view).navigate(commentsClickNavigation, bundle);
-        });
+        };
+
+        itemView.findViewById(R.id.publication_comment_button).setOnClickListener(onCommentClick);
+
+        itemView.findViewById(R.id.publication_nbComments).setOnClickListener(onCommentClick);
+
+        itemView.findViewById(R.id.publication_like_button).setOnClickListener(view -> Toast.makeText(view.getContext(), R.string.soon, Toast.LENGTH_SHORT).show());
 
         if (profileClickDestination != null) {
             /* Profile click */

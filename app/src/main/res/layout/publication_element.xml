@@ -75,6 +75,7 @@
         android:orientation="horizontal">
 
         <Button
+            android:id="@+id/publication_like_button"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:layout_weight="1"

@@ -44,7 +44,7 @@ public class PublicationMapper {
     }
 
     public Comment mapToComment(CommentDTO commentDTO) {
-        User user = new User(commentDTO.getUser(), commentDTO.getLast_name(), commentDTO.getFirst_name());
+        User user = new User(commentDTO.getUser(), commentDTO.getLastname(), commentDTO.getFirstname());
 
         DateFormat df = new SimpleDateFormat("dd-MM-yyyy", Locale.FRENCH);
         Date date = null;

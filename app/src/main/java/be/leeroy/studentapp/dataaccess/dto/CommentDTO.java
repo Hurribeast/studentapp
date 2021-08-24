@@ -6,8 +6,8 @@ public class CommentDTO {
     private String content;
     private String user;
     private String date;
-    private String last_name;
-    private String first_name;
+    private String lastname;
+    private String firstname;
 
     public Integer getId() {
         return id;
@@ -41,19 +41,19 @@ public class CommentDTO {
         this.date = date;
     }
 
-    public String getLast_name() {
-        return last_name;
+    public String getLastname() {
+        return lastname;
     }
 
-    public void setLast_name(String last_name) {
-        this.last_name = last_name;
+    public void setLastname(String last_name) {
+        this.lastname = last_name;
     }
 
-    public String getFirst_name() {
-        return first_name;
+    public String getFirstname() {
+        return firstname;
     }
 
-    public void setFirst_name(String first_name) {
-        this.first_name = first_name;
+    public void setFirstname(String first_name) {
+        this.firstname = first_name;
     }
 }

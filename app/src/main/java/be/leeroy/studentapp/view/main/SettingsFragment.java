@@ -30,7 +30,7 @@ public class SettingsFragment extends ExtendFragment {
 
         binding.settingsChangePasswordButton.setOnClickListener(view -> navigateToFragment(view, R.id.settingsFragment_to_changePasswordFragment));
 
-        binding.settingsChangeSchoolButton.setOnClickListener(view -> Toast.makeText(getActivity(), "Soon...", Toast.LENGTH_LONG).show());
+        binding.settingsChangeSchoolButton.setOnClickListener(view -> Toast.makeText(getActivity(), R.string.soon, Toast.LENGTH_LONG).show());
 
         binding.settingsDisconnectButton.setOnClickListener(view -> {
             PreferencesUtils.remove("token", requireActivity());

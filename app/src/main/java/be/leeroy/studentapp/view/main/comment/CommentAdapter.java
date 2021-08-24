@@ -8,12 +8,14 @@ import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.List;
+
 import be.leeroy.studentapp.R;
 import be.leeroy.studentapp.models.Comment;
 
 public class CommentAdapter extends RecyclerView.Adapter<CommentViewHolder> {
 
-    private Comment[] comments;
+    private List<Comment> comments;
 
     @IdRes
     private final Integer profileClickDestination;
@@ -32,14 +34,24 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull CommentViewHolder holder, int position) {
-        Comment comment = comments[position];
+        Comment comment = comments.get(position);
+
+        holder.setComment(comment);
 
         String author = comment.getUser().getFirstname() + " " + comment.getUser().getLastname();
+        String content = comment.getContent();
 
+        holder.author.setText(author);
+        holder.content.setText(content);
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return comments == null ? 0 : comments.size();
+    }
+
+    public void setComments(List<Comment> comments){
+        this.comments = comments;
+        notifyDataSetChanged();
     }
 }
