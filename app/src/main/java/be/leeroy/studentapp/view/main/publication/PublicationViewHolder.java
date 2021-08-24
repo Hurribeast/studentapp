@@ -1,7 +1,6 @@
 package be.leeroy.studentapp.view.main.publication;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
