@@ -47,7 +47,7 @@ public class RegisterFragment extends ExtendFragment {
         optionsSpinner = binding.registerOptionSpinner;
 
         viewModel.getSchools().observe(getViewLifecycleOwner(), schools -> {
-            School emptySchool = new School(0, "<Choose a school>");
+            School emptySchool = new School(null, "<Choose a school>");
             schools.add(0, emptySchool);
 
             ArrayAdapter<School> schoolsAdapter = new ArrayAdapter<>(this.getContext(), android.R.layout.simple_spinner_item, schools);
@@ -84,7 +84,7 @@ public class RegisterFragment extends ExtendFragment {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 School school = (School) adapterView.getSelectedItem();
-                if (school.getId() != 0) {
+                if (school.getId() != null) {
                     viewModel.loadOptions(school.getId());
                 } else {
                     binding.registerOptionSpinner.setAdapter(null);
@@ -120,8 +120,10 @@ public class RegisterFragment extends ExtendFragment {
         binding.registerButton.setOnClickListener(view -> {
             String email = binding.registerEmailInput.getText().toString();
             String password = binding.registerPasswordInput.getText().toString();
+            String passwordToConfirm = binding.registerConfirmPasswordInput.getText().toString();
             String lastname = binding.registerLastnameInput.getText().toString();
             String firstname = binding.registerFirstnameInput.getText().toString();
+            Integer bloc = binding.registerBlocInput.getText().toString().equals("") ? null : Integer.parseInt(binding.registerBlocInput.getText().toString());
 
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("d MMMM yyyy", Locale.FRENCH);
             Date birthday = null;
@@ -132,13 +134,14 @@ public class RegisterFragment extends ExtendFragment {
                 e.printStackTrace();
             }
 
-            Integer bloc = Integer.parseInt(binding.registerBlocInput.getText().toString());
-            String optionname = ((Option) binding.registerOptionSpinner.getSelectedItem()).getName();
-            Integer optionschool = ((School) binding.registerSchoolSpinner.getSelectedItem()).getId();
-            String passwordToConfirm = binding.registerConfirmPasswordInput.getText().toString();
+            Option option = ((Option) binding.registerOptionSpinner.getSelectedItem());
+            String optionName = option != null && !option.getName().equals("<Choose an option>")  ? option.getName() : null;
 
-            if(validForm(email, password, passwordToConfirm, lastname, firstname, birthday, optionname, optionschool, bloc)) {
-                viewModel.registerUser(email, password, lastname, firstname, birthday, optionname, optionschool, bloc);
+            Integer optionSchool = ((School) binding.registerSchoolSpinner.getSelectedItem()).getId();
+
+
+            if(validForm(email, password, passwordToConfirm, lastname, firstname, birthday, optionName, optionSchool, bloc)) {
+                viewModel.registerUser(email, password, lastname, firstname, birthday, optionName, optionSchool, bloc);
             }
         });
 
@@ -177,7 +180,7 @@ public class RegisterFragment extends ExtendFragment {
             }
         }
 
-        if(last_name.equals("") || first_name.equals("") || option_name.equals("") || option_school == null || bloc == null) {
+        if(last_name.equals("") || first_name.equals("") || option_name == null || option_school == null || bloc == null) {
             isValid = false;
         }
 

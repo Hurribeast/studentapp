@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
@@ -21,7 +22,7 @@ public class PublicationViewHolder extends RecyclerView.ViewHolder {
 
     private Publication publication;
 
-    public PublicationViewHolder(@NonNull View itemView) {
+    public PublicationViewHolder(@NonNull View itemView, @IdRes Integer profileClickDestination) {
         super(itemView);
 
         author = itemView.findViewById(R.id.publication_author);
@@ -29,13 +30,15 @@ public class PublicationViewHolder extends RecyclerView.ViewHolder {
         date = itemView.findViewById(R.id.publication_date);
         nbComments = itemView.findViewById(R.id.publication_nbComments);
 
-        /* Profile click */
-        itemView.findViewById(R.id.publication_profile).setOnClickListener(view -> {
-            Bundle bundle = new Bundle();
-            bundle.putString("user", publication.getUser().getEmail());
+        if (profileClickDestination != null) {
+            /* Profile click */
+            itemView.findViewById(R.id.publication_profile).setOnClickListener(view -> {
+                Bundle bundle = new Bundle();
+                bundle.putString("user", publication.getUser().getEmail());
 
-            Navigation.findNavController(view).navigate(R.id.feedFragment_to_profileFragment, bundle);
-        });
+                Navigation.findNavController(view).navigate(profileClickDestination, bundle);
+            });
+        }
     }
 
     public void setPublication(Publication publication) {

@@ -4,13 +4,11 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
+import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.text.SimpleDateFormat;
-import java.util.GregorianCalendar;
-import java.util.List;
 import java.util.Locale;
 
 import be.leeroy.studentapp.R;
@@ -20,12 +18,19 @@ public class PublicationAdapter extends RecyclerView.Adapter<PublicationViewHold
 
     private Publication[] publications;
 
+    @IdRes
+    private final Integer profileClickDestination;
+
+    public PublicationAdapter(@IdRes Integer profileClickDestination){
+        this.profileClickDestination = profileClickDestination;
+    }
+
     @NonNull
     @Override
     public PublicationViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LinearLayout v = (LinearLayout) LayoutInflater.from(parent.getContext()).inflate(R.layout.publication_element, parent, false);
 
-        return new PublicationViewHolder(v);
+        return new PublicationViewHolder(v, profileClickDestination);
     }
 
     @Override

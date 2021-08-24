@@ -35,7 +35,7 @@ public class ProfileFragment extends ExtendFragment {
         viewModel = new ViewModelProvider(this).get(ProfileViewModel.class);
 
         /* Create publication recyclerView */
-        PublicationAdapter publicationAdapter = new PublicationAdapter();
+        PublicationAdapter publicationAdapter = new PublicationAdapter(null);
         RecyclerView publicationsRv = binding.profilePublicationsRv;
         publicationsRv.setLayoutManager(new LinearLayoutManager(this.getActivity()));
         publicationsRv.setAdapter(publicationAdapter);
