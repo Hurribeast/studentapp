@@ -1,5 +1,7 @@
 package be.leeroy.studentapp.dataaccess.dto;
 
+import com.squareup.moshi.Json;
+
 public class UserDTO {
 
     private String email;
@@ -8,15 +10,15 @@ public class UserDTO {
     private String firstname;
     private String birthday;
 
-    private int schoolId;
-    private String schoolName;
-    private String schoolAddress;
-    private String schoolPhoneNumber;
+    private Integer schoolid = null;
+    private String schoolname;
+    private String schooladdress;
+    private String schoolphonenumber;
 
-    private String optionName;
-    private int optionNbYears;
+    private String optionname;
+    private Integer optionnbyears;
 
-    private int bloc;
+    private Integer bloc;
 
     public String getEmail() {
         return email;
@@ -50,59 +52,59 @@ public class UserDTO {
         this.birthday = birthday;
     }
 
-    public int getSchoolId() {
-        return schoolId;
+    public Integer getSchoolid() {
+        return schoolid;
     }
 
-    public void setSchoolId(int schoolId) {
-        this.schoolId = schoolId;
+    public void setSchoolid(Integer schoolid) {
+        this.schoolid = schoolid;
     }
 
-    public String getSchoolName() {
-        return schoolName;
+    public String getSchoolname() {
+        return schoolname;
     }
 
-    public void setSchoolName(String schoolName) {
-        this.schoolName = schoolName;
+    public void setSchoolname(String schoolname) {
+        this.schoolname = schoolname;
     }
 
-    public String getSchoolAddress() {
-        return schoolAddress;
+    public String getSchooladdress() {
+        return schooladdress;
     }
 
-    public void setSchoolAddress(String schoolAddress) {
-        this.schoolAddress = schoolAddress;
+    public void setSchooladdress(String schooladdress) {
+        this.schooladdress = schooladdress;
     }
 
-    public String getSchoolPhoneNumber() {
-        return schoolPhoneNumber;
+    public String getSchoolphonenumber() {
+        return schoolphonenumber;
     }
 
-    public void setSchoolPhoneNumber(String schoolPhoneNumber) {
-        this.schoolPhoneNumber = schoolPhoneNumber;
+    public void setSchoolphonenumber(String schoolphonenumber) {
+        this.schoolphonenumber = schoolphonenumber;
     }
 
-    public String getOptionName() {
-        return optionName;
+    public String getOptionname() {
+        return optionname;
     }
 
-    public void setOptionName(String optionName) {
-        this.optionName = optionName;
+    public void setOptionname(String optionname) {
+        this.optionname = optionname;
     }
 
-    public int getOptionNbYears() {
-        return optionNbYears;
+    public Integer getOptionnbyears() {
+        return optionnbyears;
     }
 
-    public void setOptionNbYears(int optionNbYears) {
-        this.optionNbYears = optionNbYears;
+    public void setOptionnbyears(Integer optionnbyears) {
+        this.optionnbyears = optionnbyears;
     }
 
-    public int getBloc() {
+    public Integer getBloc() {
         return bloc;
     }
 
-    public void setBloc(int bloc) {
+    public void setBloc(Integer bloc) {
         this.bloc = bloc;
     }
 }

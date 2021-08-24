@@ -8,7 +8,7 @@ public class User {
     private String lastname;
     private String firstname;
     private GregorianCalendar birthday;
-    private int bloc;
+    private Integer bloc;
     private Option option;
 
     public User(String email, String lastname, String firstname, GregorianCalendar birthday, Integer bloc, Option option) {
@@ -58,11 +58,11 @@ public class User {
         this.birthday = birthday;
     }
 
-    public int getBloc() {
+    public Integer getBloc() {
         return bloc;
     }
 
-    public void setBloc(int bloc) {
+    public void setBloc(Integer bloc) {
         this.bloc = bloc;
     }
 

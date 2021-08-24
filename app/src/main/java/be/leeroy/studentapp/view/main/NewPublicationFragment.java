@@ -58,6 +58,7 @@ public class NewPublicationFragment extends ExtendFragment {
         });
 
         viewModel.isPublished().observe(getViewLifecycleOwner(), published -> {
+            hideKeyboard(getView());
             navigateToBackFragment();
         });
         viewModel.getError().observe(getViewLifecycleOwner(), this::displayError);

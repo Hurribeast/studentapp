@@ -51,7 +51,7 @@ public class FeedViewModel extends AndroidViewModel {
     }
 
     public void loadPublications(String token) {
-        publicationDataAccess.getPublications(token).enqueue(new Callback<PublicationDTO[]>() {
+        publicationDataAccess.getPublications(token, null).enqueue(new Callback<PublicationDTO[]>() {
             @Override
             public void onResponse(@NotNull Call<PublicationDTO[]> call, @NotNull Response<PublicationDTO[]> response) {
                 if (response.isSuccessful()) {

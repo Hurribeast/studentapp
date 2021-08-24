@@ -1,5 +1,7 @@
 package be.leeroy.studentapp.dataaccess.mappers;
 
+import android.util.Log;
+
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -43,9 +45,11 @@ public class UserMapper {
             birthday.setTime(date);
         }
 
-        if(userDTO.getSchoolId() != 0) {
-            school = new School(userDTO.getSchoolId(), userDTO.getSchoolName(), userDTO.getSchoolAddress(), userDTO.getSchoolPhoneNumber());
-            option = new Option(school, userDTO.getOptionName(), userDTO.getOptionNbYears());
+        Log.d("debug", userDTO.getSchoolid() + " : ID");
+
+        if(userDTO.getSchoolid() != null) {
+            school = new School(userDTO.getSchoolid(), userDTO.getSchoolname(), userDTO.getSchooladdress(), userDTO.getSchoolphonenumber());
+            option = new Option(school, userDTO.getOptionname(), userDTO.getOptionnbyears());
         }
 
         return new User(userDTO.getEmail(), userDTO.getLastname(), userDTO.getFirstname(), birthday, userDTO.getBloc(), option);
