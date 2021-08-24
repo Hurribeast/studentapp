@@ -1,7 +1,6 @@
 package be.leeroy.studentapp.view.connection;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,8 +39,8 @@ public class LoginFragment extends ExtendFragment {
         });
 
         viewModel.getToken().observe(getViewLifecycleOwner(), token -> {
-            PreferencesUtils.set("token", token, getActivity());
-            PreferencesUtils.set("userEmail", binding.loginEmailInput.getText().toString(), getActivity());
+            PreferencesUtils.set("token", token, requireActivity());
+            PreferencesUtils.set("userEmail", binding.loginEmailInput.getText().toString(), requireActivity());
             navigateToActivity(MainActivity.class);
         });
 

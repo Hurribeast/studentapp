@@ -4,7 +4,6 @@ import java.util.List;
 
 import be.leeroy.studentapp.dataaccess.dto.CommentDTO;
 import be.leeroy.studentapp.dataaccess.dto.PublicationDTO;
-import be.leeroy.studentapp.models.Comment;
 import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
 import retrofit2.Call;

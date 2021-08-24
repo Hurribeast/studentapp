@@ -1,16 +1,15 @@
 package be.leeroy.studentapp.view.main;
 
 import android.os.Bundle;
-
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
 import androidx.lifecycle.ViewModelProvider;
 
-import be.leeroy.studentapp.R;
 import be.leeroy.studentapp.databinding.FragmentNewPublicationBinding;
 import be.leeroy.studentapp.view.ExtendFragment;
 import be.leeroy.studentapp.viewmodel.NewPublicationViewModel;
@@ -25,7 +24,7 @@ public class NewPublicationFragment extends ExtendFragment {
     private NewPublicationViewModel viewModel;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentNewPublicationBinding.inflate(inflater, container, false);
         viewModel = new ViewModelProvider(this).get(NewPublicationViewModel.class);
 
@@ -36,9 +35,7 @@ public class NewPublicationFragment extends ExtendFragment {
         });
 
         /* Publish button */
-        binding.newPublicationPublishButton.setOnClickListener(view -> {
-            viewModel.publishPublication(binding.newPublicationContentEditText.getText().toString(), getBearerAuth());
-        });
+        binding.newPublicationPublishButton.setOnClickListener(view -> viewModel.publishPublication(binding.newPublicationContentEditText.getText().toString(), getBearerAuth()));
 
         /* Content */
         binding.newPublicationContentEditText.addTextChangedListener(new TextWatcher() {

@@ -1,8 +1,6 @@
 package be.leeroy.studentapp.view.main;
 
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;

@@ -22,15 +22,6 @@ public class Publication {
         this.nbReports = nbReports;
     }
 
-    public Publication(int id, User user, String content, GregorianCalendar date, int nbLikes, int nbReports) {
-        this.id = id;
-        this.user = user;
-        this.content = content;
-        this.date = date;
-        this.nbLikes = nbLikes;
-        this.nbReports = nbReports;
-    }
-
     public int getId() {
         return id;
     }

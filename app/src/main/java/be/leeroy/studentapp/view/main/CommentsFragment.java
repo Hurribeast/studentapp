@@ -3,7 +3,6 @@ package be.leeroy.studentapp.view.main;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -53,9 +52,7 @@ public class CommentsFragment extends ExtendFragment {
         });
 
         /* Publish button */
-        binding.commentsPublishButton.setOnClickListener(view -> {
-            viewModel.addComment(binding.commentsContentEditText.getText().toString(), publiId, getBearerAuth());
-        });
+        binding.commentsPublishButton.setOnClickListener(view -> viewModel.addComment(binding.commentsContentEditText.getText().toString(), publiId, getBearerAuth()));
 
         /* Back button */
         binding.commentsBackButton.setOnClickListener(view -> {
@@ -68,9 +65,7 @@ public class CommentsFragment extends ExtendFragment {
 
         /* New comment */
         viewModel.isCommented().observe(getViewLifecycleOwner(), commented -> {
-            Log.d("debug", "commented : " + commented);
-
-            if (commented) {
+           if (commented) {
                 binding.commentsContentEditText.setText("");
                 viewModel.loadComments(publiId, getBearerAuth());
                 hideKeyboard(getView());
