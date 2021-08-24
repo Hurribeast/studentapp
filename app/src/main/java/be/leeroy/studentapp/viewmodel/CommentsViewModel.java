@@ -20,6 +20,7 @@ import be.leeroy.studentapp.models.errors.Errors;
 import be.leeroy.studentapp.services.RetrofitConfigurationService;
 import be.leeroy.studentapp.utils.ApiUtils;
 import okhttp3.RequestBody;
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -77,6 +78,35 @@ public class CommentsViewModel extends AndroidViewModel {
                 }
             }
         });
+    }
+    public void addComment(String content, Integer id, Integer publiID, String token) {
+        HashMap<String, Object> body = new HashMap<>();
+        body.put("content", content);
+        body.put("id", id);
+        body.put("publiID", publiID);
+        RequestBody requestBody = ApiUtils.ToRequestBody(body);
+        publicationDataAccess.createPublication(token, requestBody).enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(@NonNull Call<ResponseBody> call, @NonNull Response<ResponseBody> response) {
+                if(response.isSuccessful()) {
+                    _error.setValue(null);
+                } else if(response.code() == 401) {
+                    _error.setValue(Errors.TOKEN_EXPIRED);
+                } else {
+                    _error.setValue(Errors.TECHNICAL_ERROR);
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<ResponseBody> call, @NonNull Throwable t) {
+                if (t instanceof NoConnectivityException) {
+                    _error.setValue(Errors.NO_CONNECTION);
+                } else {
+                    _error.setValue(Errors.TECHNICAL_ERROR);
+                }
+            }
+        });
+
     }
     public LiveData<Errors> getError() {
         return error;
