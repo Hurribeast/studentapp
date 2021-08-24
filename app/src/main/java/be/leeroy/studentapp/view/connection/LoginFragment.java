@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import be.leeroy.studentapp.R;
 import be.leeroy.studentapp.databinding.FragmentLoginBinding;
+import be.leeroy.studentapp.models.errors.Errors;
 import be.leeroy.studentapp.utils.PreferencesUtils;
 import be.leeroy.studentapp.utils.RegexValidation;
 import be.leeroy.studentapp.view.ExtendFragment;
@@ -44,7 +45,12 @@ public class LoginFragment extends ExtendFragment {
             navigateToActivity(MainActivity.class);
         });
 
-        viewModel.getError().observe(getViewLifecycleOwner(), this::displayError);
+        viewModel.getError().observe(getViewLifecycleOwner(), error -> {
+            if (error == Errors.PASSWORD_INCORRECT)
+                binding.loginEmailInput.setError(error.getMessage());
+            else
+                displayError(error);
+        });
 
         return binding.getRoot();
     }

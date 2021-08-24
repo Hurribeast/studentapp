@@ -12,11 +12,14 @@ public enum Errors {
     EMAIL_EXIST(R.string.email_exist),
 
     /* Password errors */
-    PASSWORD_INCORRECT(R.string.invalid_password);
+    PASSWORD_INCORRECT(R.string.invalid_password),
 
-    private final int errorMessage;
+    /* Token error */
+    TOKEN_EXPIRED(null);
 
-    Errors(int errorMessage) {
+    private final Integer errorMessage;
+
+    Errors(Integer errorMessage) {
         this.errorMessage = errorMessage;
     }
 

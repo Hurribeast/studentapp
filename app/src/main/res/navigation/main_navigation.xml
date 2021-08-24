@@ -61,4 +61,9 @@
         android:name="be.leeroy.studentapp.view.main.ChangePasswordFragment"
         android:label="fragment_change_password"
         tools:layout="@layout/fragment_change_password" />
+    <fragment
+        android:id="@+id/errorFragment"
+        android:name="be.leeroy.studentapp.view.ErrorFragment"
+        android:label="fragment_error"
+        tools:layout="@layout/fragment_error" />
 </navigation>

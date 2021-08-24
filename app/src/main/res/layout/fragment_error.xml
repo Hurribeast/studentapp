@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.ErrorFragment"
+    android:background="@color/colorPrimary">
+
+
+    <ImageView
+        android:id="@+id/error_icon"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/ic_error_white"
+        android:contentDescription="@string/error"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"/>
+
+    <TextView
+        android:id="@+id/error_message_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/error_icon"
+        android:layout_marginTop="20dp"
+        android:paddingHorizontal="25dp"
+        android:textColor="#FFF"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:gravity="center"/>
+
+    <Button
+        android:id="@+id/error_retry_button"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@+id/error_message_label"
+        android:layout_marginHorizontal="45dp"
+        android:layout_marginTop="35dp"
+        android:text="@string/retry"
+        android:textColor="#FFF"
+        android:textSize="20sp"
+        android:background="@drawable/rounded_button" />
+
+</RelativeLayout>

@@ -23,4 +23,10 @@
         android:name="be.leeroy.studentapp.view.connection.RegisterFragment"
         android:label="fragment_register"
         tools:layout="@layout/fragment_register" />
+
+    <fragment
+        android:id="@+id/errorFragment"
+        android:name="be.leeroy.studentapp.view.ErrorFragment"
+        android:label="fragment_error"
+        tools:layout="@layout/fragment_error" />
 </navigation>

@@ -49,6 +49,8 @@ public class NewPublicationViewModel extends AndroidViewModel {
                 if(response.isSuccessful()) {
                     _published.setValue(true);
                     _error.setValue(null);
+                } else if (response.code() == 401) {
+                    _error.setValue(Errors.TOKEN_EXPIRED);
                 } else {
                     _error.setValue(Errors.REQUEST_ERROR);
                 }

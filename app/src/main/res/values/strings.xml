@@ -29,12 +29,15 @@
     <string name="bloc">Bloc :</string>
     <string name="lastname">Last name :</string>
     <string name="firstname">First name :</string>
+    <string name="error">Error</string>
     <string name="error_empty_email">Empty email field</string>
     <string name="error_email_format">Unvalid email</string>
     <string name="error_empty_password">Empty password field</string>
     <string name="error_password_no_match">Passwords does not match each other</string>
+    <string name="error_reconnect">An error occurred, please reconnect !</string>
     <string name="not_actual_password">Wrong old password</string>
     <string name="password_changed">Password changed successfully !</string>
+    <string name="retry">Retry</string>
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
@@ -48,4 +51,5 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="old_password">Old password : </string>
     <string name="changing_same_password">You are trying to change your password for the same one</string>
+    <string name="press_secondTime">Press again to quit</string>
 </resources>

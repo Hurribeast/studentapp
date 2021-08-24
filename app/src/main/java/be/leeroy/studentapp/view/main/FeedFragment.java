@@ -1,19 +1,17 @@
 package be.leeroy.studentapp.view.main;
 
 import android.os.Bundle;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import be.leeroy.studentapp.R;
 import be.leeroy.studentapp.databinding.FragmentFeedBinding;
-import be.leeroy.studentapp.models.errors.Errors;
 import be.leeroy.studentapp.utils.PreferencesUtils;
 import be.leeroy.studentapp.view.ExtendFragment;
 import be.leeroy.studentapp.view.main.publication.PublicationAdapter;
@@ -27,7 +25,7 @@ public class FeedFragment extends ExtendFragment {
     private FeedViewModel viewModel;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentFeedBinding.inflate(inflater, container, false);
         viewModel = new ViewModelProvider(this).get(FeedViewModel.class);
 
@@ -42,9 +40,7 @@ public class FeedFragment extends ExtendFragment {
         publicationsRv.setAdapter(publicationAdapter);
 
         /* Create publication */
-        binding.feedCreatePublicationButton.setOnClickListener(view -> {
-            navigateToFragment(view, R.id.feedFragment_to_newPublicationFragment);
-        });
+        binding.feedCreatePublicationButton.setOnClickListener(view -> navigateToFragment(view, R.id.feedFragment_to_newPublicationFragment));
 
         /* My profile button */
         binding.feedProfileButton.setOnClickListener(view -> {
@@ -54,11 +50,9 @@ public class FeedFragment extends ExtendFragment {
         });
 
         /* Refresh publications */
-        binding.feedRefreshLayout.setOnRefreshListener(() -> {
-            viewModel.loadPublications(getBearerAuth());
-        });
+        binding.feedRefreshLayout.setOnRefreshListener(() -> viewModel.loadPublications(getBearerAuth()));
 
-        /* Erreurs */
+        /* Errors */
         viewModel.getError().observe(getViewLifecycleOwner(), this::displayError);
 
         return binding.getRoot();

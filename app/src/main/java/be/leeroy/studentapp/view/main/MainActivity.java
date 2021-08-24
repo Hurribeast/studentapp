@@ -1,12 +1,19 @@
 package be.leeroy.studentapp.view.main;
 
 import android.os.Bundle;
-import android.util.Log;
+import android.os.Handler;
+import android.os.Looper;
+import android.widget.Toast;
+
+import androidx.fragment.app.Fragment;
+import androidx.navigation.fragment.NavHostFragment;
 
 import be.leeroy.studentapp.R;
 import be.leeroy.studentapp.view.ExtendActivity;
 
 public class MainActivity extends ExtendActivity {
+
+    private long timeWhenBack = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,9 +23,19 @@ public class MainActivity extends ExtendActivity {
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
+        NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.main_fragment_container);
+        Fragment fragment = navHostFragment.getChildFragmentManager().getFragments().get(0);
 
-        int count = getSupportFragmentManager().getBackStackEntryCount();
-        Log.d("debug", "COUNT : " + count);
+        if (fragment instanceof FeedFragment){
+            /* Verify for a second back */
+            if(System.currentTimeMillis() - timeWhenBack < 2000 ) {
+                finishAndRemoveTask();
+            } else {
+                Toast.makeText(this, getString(R.string.press_secondTime), Toast.LENGTH_SHORT).show();
+                timeWhenBack = System.currentTimeMillis();
+            }
+        } else {
+            super.onBackPressed();
+        }
     }
 }

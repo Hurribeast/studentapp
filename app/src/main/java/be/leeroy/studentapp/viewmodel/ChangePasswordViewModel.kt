@@ -42,6 +42,9 @@ class ChangePasswordViewModel(application: Application) : AndroidViewModel(appli
                     response.code() == 403 -> {
                         _error.value = Errors.PASSWORD_INCORRECT
                     }
+                    response.code() == 401 -> {
+                        _error.value = Errors.TOKEN_EXPIRED
+                    }
                     else -> {
                         _error.value = Errors.TECHNICAL_ERROR
                     }

@@ -44,8 +44,6 @@ public class UserMapper {
             birthday.setTime(date);
         }
 
-        Log.d("debug", userDTO.getSchoolid() + " : ID");
-
         if(userDTO.getSchoolid() != null) {
             school = new School(userDTO.getSchoolid(), userDTO.getSchoolname(), userDTO.getSchooladdress(), userDTO.getSchoolphonenumber());
             option = new Option(school, userDTO.getOptionname(), userDTO.getOptionnbyears());

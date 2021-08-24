@@ -68,6 +68,8 @@ public class ProfileViewModel extends AndroidViewModel {
                 if (response.isSuccessful()) {
                     _user.setValue(userMapper.mapToUser(response.body()));
                     _error.setValue(null);
+                } else if (response.code() == 401) {
+                    _error.setValue(Errors.TOKEN_EXPIRED);
                 } else {
                     _error.setValue(Errors.REQUEST_ERROR);
                 }
@@ -98,6 +100,8 @@ public class ProfileViewModel extends AndroidViewModel {
 
                     _publications.setValue(publications);
                     _error.setValue(null);
+                } else if (response.code() == 401) {
+                    _error.setValue(Errors.TOKEN_EXPIRED);
                 } else {
                     _error.setValue(Errors.REQUEST_ERROR);
                 }
