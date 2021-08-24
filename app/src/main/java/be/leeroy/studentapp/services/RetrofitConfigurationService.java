@@ -15,7 +15,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.moshi.MoshiConverterFactory;
 
 public class RetrofitConfigurationService {
-    private static final String BASE_URL = "http://192.168.0.14:3001/";
+    private static final String BASE_URL = "https://neat-moth-88.loca.lt/";
 
     // DataAccess
     private UserDataAccess userDataAccess = null;
