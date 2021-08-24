@@ -45,16 +45,20 @@ public class CommentsViewModel extends AndroidViewModel {
     public void loadComments(Integer publiId, String token) {
         HashMap<String, Object> body = new HashMap<>();
         body.put("publiID", publiId);
+
         RequestBody requestBody = ApiUtils.ToRequestBody(body);
-        publicationDataAccess.getCommentsFromAPublication(requestBody).enqueue(new Callback<List<CommentDTO>>() {
+
+        publicationDataAccess.getCommentsFromAPublication(token, requestBody).enqueue(new Callback<List<CommentDTO>>() {
             @Override
             public void onResponse(@NonNull Call<List<CommentDTO>> call, @NonNull Response<List<CommentDTO>> response) {
                 if(response.isSuccessful()) {
                     List<CommentDTO> commentsDTO = response.body();
                     List<Comment> comments = new ArrayList<>();
+
                     for(CommentDTO commentDTO : commentsDTO) {
                         comments.add(publicationMapper.mapToComment(commentDTO));
                     }
+
                     _comments.setValue(comments);
                     _error.setValue(null);
                 } else if(response.code() == 401) {

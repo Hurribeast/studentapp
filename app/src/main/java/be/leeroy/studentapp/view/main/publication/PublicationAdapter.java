@@ -19,10 +19,14 @@ public class PublicationAdapter extends RecyclerView.Adapter<PublicationViewHold
     private Publication[] publications;
 
     @IdRes
-    private final Integer profileClickDestination;
+    private final Integer profileClickNavigation;
 
-    public PublicationAdapter(@IdRes Integer profileClickDestination){
-        this.profileClickDestination = profileClickDestination;
+    @IdRes
+    private final Integer commentsClickNavigation;
+
+    public PublicationAdapter(@IdRes Integer profileClickNavigation, @IdRes Integer commentsClickNavigation){
+        this.profileClickNavigation = profileClickNavigation;
+        this.commentsClickNavigation = commentsClickNavigation;
     }
 
     @NonNull
@@ -30,7 +34,7 @@ public class PublicationAdapter extends RecyclerView.Adapter<PublicationViewHold
     public PublicationViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LinearLayout v = (LinearLayout) LayoutInflater.from(parent.getContext()).inflate(R.layout.publication_element, parent, false);
 
-        return new PublicationViewHolder(v, profileClickDestination);
+        return new PublicationViewHolder(v, profileClickNavigation, commentsClickNavigation);
     }
 
     @Override

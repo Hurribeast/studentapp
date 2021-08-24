@@ -23,5 +23,5 @@ public interface PublicationDataAccess {
     Call<ResponseBody> createPublication(@Header("Authorization") String headerAuth, @Body RequestBody body);
 
     @POST("/publication/comments")
-    Call<List<CommentDTO>> getCommentsFromAPublication(@Body RequestBody body);
+    Call<List<CommentDTO>> getCommentsFromAPublication(@Header("Authorization") String headerAuth, @Body RequestBody body);
 }

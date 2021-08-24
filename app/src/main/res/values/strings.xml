@@ -52,4 +52,5 @@
     <string name="old_password">Old password : </string>
     <string name="changing_same_password">You are trying to change your password for the same one</string>
     <string name="press_secondTime">Press again to quit</string>
+    <string name="comments">Comments</string>
 </resources>

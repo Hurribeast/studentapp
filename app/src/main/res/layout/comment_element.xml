@@ -35,7 +35,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
                 android:textSize="12sp"
-                android:text="Justin Sohy"
+                android:text=""
                 android:textColor="#000"
                 android:textStyle="bold"/>
 

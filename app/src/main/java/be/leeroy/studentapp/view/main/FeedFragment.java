@@ -30,7 +30,7 @@ public class FeedFragment extends ExtendFragment {
         viewModel = new ViewModelProvider(this).get(FeedViewModel.class);
 
         /* List Publications */
-        PublicationAdapter publicationAdapter = new PublicationAdapter(R.id.feedFragment_to_profileFragment);
+        PublicationAdapter publicationAdapter = new PublicationAdapter(R.id.feedFragment_to_profileFragment, R.id.feedFragment_to_commentsFragment);
         viewModel.getPublications().observe(getViewLifecycleOwner(), publications -> {
             publicationAdapter.setPublications(publications);
             binding.feedRefreshLayout.setRefreshing(false);

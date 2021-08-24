@@ -21,13 +21,20 @@ public class PublicationViewHolder extends RecyclerView.ViewHolder {
 
     private Publication publication;
 
-    public PublicationViewHolder(@NonNull View itemView, @IdRes Integer profileClickDestination) {
+    public PublicationViewHolder(@NonNull View itemView, @IdRes Integer profileClickDestination, @IdRes Integer commentsClickNavigation) {
         super(itemView);
 
         author = itemView.findViewById(R.id.publication_author);
         content = itemView.findViewById(R.id.publication_content);
         date = itemView.findViewById(R.id.publication_date);
         nbComments = itemView.findViewById(R.id.publication_nbComments);
+
+        itemView.findViewById(R.id.publication_comment_button).setOnClickListener(view -> {
+            Bundle bundle = new Bundle();
+            bundle.putInt("publiId", publication.getId());
+
+            Navigation.findNavController(view).navigate(commentsClickNavigation, bundle);
+        });
 
         if (profileClickDestination != null) {
             /* Profile click */
