@@ -7,13 +7,22 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import be.leeroy.studentapp.dataaccess.PublicationDataAccess;
+import be.leeroy.studentapp.dataaccess.dto.CommentDTO;
 import be.leeroy.studentapp.dataaccess.mappers.PublicationMapper;
+import be.leeroy.studentapp.exceptions.NoConnectivityException;
 import be.leeroy.studentapp.models.Comment;
 import be.leeroy.studentapp.models.errors.Errors;
 import be.leeroy.studentapp.services.RetrofitConfigurationService;
+import be.leeroy.studentapp.utils.ApiUtils;
+import okhttp3.RequestBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class CommentsViewModel extends AndroidViewModel {
 
@@ -33,7 +42,42 @@ public class CommentsViewModel extends AndroidViewModel {
         this.publicationMapper = PublicationMapper.getInstance();
     }
 
-    public List<Comment> getCommentsFromAPublication() {
-        
+    public void loadComments(Integer publiId, String token) {
+        HashMap<String, Object> body = new HashMap<>();
+        body.put("publiID", publiId);
+        RequestBody requestBody = ApiUtils.ToRequestBody(body);
+        publicationDataAccess.getCommentsFromAPublication(requestBody).enqueue(new Callback<List<CommentDTO>>() {
+            @Override
+            public void onResponse(@NonNull Call<List<CommentDTO>> call, @NonNull Response<List<CommentDTO>> response) {
+                if(response.isSuccessful()) {
+                    List<CommentDTO> commentsDTO = response.body();
+                    List<Comment> comments = new ArrayList<>();
+                    for(CommentDTO commentDTO : commentsDTO) {
+                        comments.add(publicationMapper.mapToComment(commentDTO));
+                    }
+                    _comments.setValue(comments);
+                    _error.setValue(null);
+                } else if(response.code() == 401) {
+                    _error.setValue(Errors.TOKEN_EXPIRED);
+                } else {
+                    _error.setValue(Errors.REQUEST_ERROR);
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<List<CommentDTO>> call, @NonNull Throwable t) {
+                if (t instanceof NoConnectivityException) {
+                    _error.setValue(Errors.NO_CONNECTION);
+                } else {
+                    _error.setValue(Errors.TECHNICAL_ERROR);
+                }
+            }
+        });
+    }
+    public LiveData<Errors> getError() {
+        return error;
+    }
+    public LiveData<List<Comment>> getComments() {
+        return comments;
     }
 }

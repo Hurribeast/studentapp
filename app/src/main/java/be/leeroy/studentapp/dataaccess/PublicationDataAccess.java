@@ -2,6 +2,7 @@ package be.leeroy.studentapp.dataaccess;
 
 import java.util.List;
 
+import be.leeroy.studentapp.dataaccess.dto.CommentDTO;
 import be.leeroy.studentapp.dataaccess.dto.PublicationDTO;
 import be.leeroy.studentapp.models.Comment;
 import okhttp3.RequestBody;
@@ -22,5 +23,5 @@ public interface PublicationDataAccess {
     Call<ResponseBody> createPublication(@Header("Authorization") String headerAuth, @Body RequestBody body);
 
     @POST("/publication/comments")
-    Call<List<Comment>> getCommentsFromAPublication(@Body RequestBody body);
+    Call<List<CommentDTO>> getCommentsFromAPublication(@Body RequestBody body);
 }
