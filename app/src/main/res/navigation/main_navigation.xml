@@ -24,6 +24,13 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_right"
             app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/feedFragment_to_commentsFragment"
+            app:destination="@id/commentsFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/newPublicationFragment"
@@ -66,4 +73,9 @@
         android:name="be.leeroy.studentapp.view.ErrorFragment"
         android:label="fragment_error"
         tools:layout="@layout/fragment_error" />
+    <fragment
+        android:id="@+id/commentsFragment"
+        android:name="be.leeroy.studentapp.view.main.CommentsFragment"
+        android:label="fragment_comments"
+        tools:layout="@layout/fragment_comments" />
 </navigation>
